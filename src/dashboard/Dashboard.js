@@ -5,6 +5,8 @@ import formatRotations from '../utils/formatRotations';
 import timeConvert from '../utils/time-conversion';
 import Layovers from '../Layovers';
 import FlightPay from '../FlightPay';
+import TripLength from '../TripLength';
+import Equipment from '../Equipment';
 
 export default function Dashboard() {
   const [highlighted, setHighlighted] = useState(false);
@@ -14,21 +16,45 @@ export default function Dashboard() {
   for (let value of rotations.values()) {
     tafb = tafb + value.dom_tafb + value.intl_tafb;
   }
-  console.log('tafb', tafb);
+
+    //create array of flight segments
+    let list = [];
+    for (let value of rotations.values()) {
+      list.push(...value.segments);
+    }
+
+   //sum of layover_time for all flight segments
+   const layoverHours = list.reduce((acc, item) => {
+    return acc + item.layover_time;
+  }, 0);
+  let hours = timeConvert(layoverHours);
 
   if (rotations.size) {
     return (
       <>
-        <div>
-          <p>
-            Data for {rotations.keys().next().value} -
-            {Array.from(rotations.keys()).pop()}
-          </p>
-          <h1>Days Away from Base</h1>
-          <p>You spent {timeConvert(tafb)} away from base.</p>
+        <h1 className="mt-4 text-center">
+            Data for {rotations.keys().next().value} - {Array.from(rotations.keys()).pop()}
+          </h1>
+      <div className="card-deck">
+        <div className="card shadow m-4">
+        <h2 className="card-header">My Time</h2>
+          <div className="card-body">
+          <p className="card-text">You spent {timeConvert(tafb)} away from base.</p>
+         
+        <p className="card-text">You spent {hours} on a layover.</p>
+          </div>
         </div>
-        <Layovers rotations={rotations} />
         <FlightPay rotations={rotations} />
+       
+        </div>
+        <div className="row">
+          <Layovers list={list} />
+         
+        </div>
+        <div className="card-deck">
+        <TripLength rotations={rotations} />
+        <Equipment list={list} />
+        </div>
       </>
     );
   } else {
