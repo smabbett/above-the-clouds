@@ -35,7 +35,7 @@ function TripLength({ rotations }) {
      
   
       <Chart
-  width={'500px'}
+  width={'100%'}
   height={'300px'}
   chartType="PieChart"
   loader={<div>Loading Chart</div>}
@@ -45,6 +45,7 @@ function TripLength({ rotations }) {
   ]}
   options={{
     title: 'My Trips',
+    is3D: true,
   }}
   rootProps={{ 'data-testid': '1' }}
 />

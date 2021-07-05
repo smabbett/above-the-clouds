@@ -8,8 +8,10 @@ function TimeAwayFromBase({rotations, list}){
     for (let value of rotations.values()) {
       tafb = tafb + value.dom_tafb + value.intl_tafb;
     }
-     //create Map to get flight hours by month
-  const result = new Map()
+   
+  const result = new Map([["JAN",0],["FEB",0],["MAR",0],["APR",0],
+  ["MAY",0],["JUN",0],["JUL",0],["AUG",0],["SEP",0],["OCT",0],
+  ["NOV",0],["DEC",0]])
   list.forEach((item)=>{
     if (!result.has((item.dept_date).slice(2,5))){
       result.set((item.dept_date).slice(2,5), item.leg_block_time)
@@ -29,33 +31,46 @@ function TimeAwayFromBase({rotations, list}){
   //  result.set(key, hoursMinutesConvert(value))
   // }
   let resultArray = [...result]
- 
+  let monthCount = 0
   resultArray.forEach((item)=>{
+    if (item[1]!== 0){
+      monthCount++
+    }
     item.push(hoursMinutesConvert(item[1]))
   })
+    const totalHours = resultArray.reduce((acc, item)=>{
+      return acc + item[1]
+    },0)
+    const avg = hoursMinutesConvert (totalHours/monthCount)
     
     return (
         <>
-                <div className="col-6">
-                    <table className="table">
+                <div className="col-md-6">
+                    <table className="table table-hover">
                         <tbody>
                             <tr>
                             <th scope="row">Time Away From Base</th>
                             <td>
-                            {daysHoursMinutesConvert(tafb)}
+                            {daysHoursMinutesConvert(tafb)} ({(tafb)} minutes)
                             </td>
                             </tr>
                             <tr>
                             <th scope="row">Layover Time</th>
                             <td>
-                            {daysHoursMinutesConvert( layoverHours)}
+                            {daysHoursMinutesConvert( layoverHours)} ({layoverHours} minutes)
                             </td>
                             </tr>
+                            <tr>
+            <th scope="row">Monthly Average</th>
+            <td>
+              {avg} (HH:MM)
+            </td>
+          </tr>
                         </tbody>
                     </table>
 
                     <Chart
-            width={'500px'}
+            width={'100%'}
             height={'300px'}
             chartType="BarChart"
             loader={<div>Loading Chart</div>}
@@ -74,8 +89,8 @@ function TimeAwayFromBase({rotations, list}){
             }}
             rootProps={{ 'data-testid': '1' }}
           />
-          
-                </div>
+          </div>
+              
            
            
             

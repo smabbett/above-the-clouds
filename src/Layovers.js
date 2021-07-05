@@ -15,25 +15,15 @@ function Layovers({ list }) {
     }
   });
 
-  // let layoverStns = [...result];
-  // let layovers = layoverStns.map((item, index) => {
-  //   return (
-  //     <li key={index}>
-  //       {item[0]} - {item[1]}
-  //     </li>
-  //   );
-  // });
-
   return (
     <>
       <div className="card shadow m-3 w-100">
         <h4 className="card-header">My Layovers</h4>
-       {/* <ul>{layovers}</ul> */}
       <div className="card-body">
         <div className="row">
-        <div className="col">
+        <div className="col-sm">
         <Chart
-  width={'500px'}
+  width={'100%'}
   height={'300px'}
   chartType="PieChart"
   loader={<div>Loading Chart</div>}
@@ -41,6 +31,7 @@ function Layovers({ list }) {
   options={{
     title: 'My Layovers',
     // sliceVisibilityThreshold: 0.05, //5%
+    is3D: true,
   }}
   rootProps={{ 'data-testid': '1' }}
 />
@@ -64,9 +55,9 @@ function Layovers({ list }) {
   rootProps={{ 'data-testid': '1' }}
 /> */}
 
-<div className="col">
+<div className="col-sm">
 <Chart
-  width={'500px'}
+  width={'100%'}
   height={'300px'}
   chartType="Bar"
   loader={<div>Loading Chart</div>}

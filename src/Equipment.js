@@ -14,17 +14,7 @@ function Equipment({ list }) {
       }
     }
   });
-  // let a = result.get(320) + result.get("32K")
-  // console.log(result)
-  // console.log(a)
-  // let equipArray = [...result];
-  // let equipList = equipArray.map((item, index) => {
-  //   return (
-  //     <li key={index}>
-  //       {item[0]} - {item[1]}
-  //     </li>
-  //   );
-  // });
+
   return (
     <div className="card shadow m-3">
       <h4 className="card-header">Aircraft Flown</h4>
@@ -32,8 +22,8 @@ function Equipment({ list }) {
       {/* <ul>{equipList}</ul> */}
 
       <Chart
-  width={'500px'}
-  height={'300px'}
+  width={'100%'}
+  height={'100%'}
   chartType="PieChart"
   loader={<div>Loading Chart</div>}
   data={[
@@ -55,6 +45,7 @@ function Equipment({ list }) {
   ]}
   options={{
     title: 'My Aircraft',
+    is3D: true,
   }}
   rootProps={{ 'data-testid': '1' }}
 />

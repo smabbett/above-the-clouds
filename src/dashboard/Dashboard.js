@@ -7,7 +7,6 @@ import FlightPay from '../FlightPay';
 import TripLength from '../TripLength';
 import Equipment from '../Equipment';
 import "./Dashboard.css"
-
 import TimeAwayFromBase from '../TimeAwayFromBase';
 
 export default function Dashboard() {
@@ -19,14 +18,13 @@ export default function Dashboard() {
   for (let value of rotations.values()) {
     list.push(...value.segments)
   }
-  console.log('list', list)
   
   if (rotations.size) {
     return (
       <>
-        <h1 className="mt-4 text-center">
+        {/* <h1 className="mt-4 text-center">
             Data for {rotations.keys().next().value} - {Array.from(rotations.keys()).pop()}
-        </h1>
+        </h1> */}
         <div className="card shadow my-3 w-100">
           <h4 className="card-header">My Time</h4>
           <div className="card-body">
@@ -83,7 +81,6 @@ export default function Dashboard() {
                       .toLowerCase(),
                 });
                 const rotationsMap = formatRotations([...result.data]);
-                console.log('rotationsMap', rotationsMap);
                 setRotations(rotationsMap);
               });
           }}
