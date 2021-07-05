@@ -14,9 +14,9 @@ function Equipment({ list }) {
       }
     }
   });
-  let a = result.get(320) + result.get("32K")
-  console.log(result)
-  console.log(a)
+  // let a = result.get(320) + result.get("32K")
+  // console.log(result)
+  // console.log(a)
   // let equipArray = [...result];
   // let equipList = equipArray.map((item, index) => {
   //   return (
@@ -26,8 +26,8 @@ function Equipment({ list }) {
   //   );
   // });
   return (
-    <div className="card shadow m-4">
-      <h2 className="card-header">Aircraft Flown</h2>
+    <div className="card shadow m-3">
+      <h4 className="card-header">Aircraft Flown</h4>
       <div className="card-body">
       {/* <ul>{equipList}</ul> */}
 

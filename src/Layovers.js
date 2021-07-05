@@ -2,11 +2,6 @@ import React from 'react';
 import {Chart} from "react-google-charts"
 
 function Layovers({ list }) {
-
-  
-
- 
-
   //use Map to count layovers by city
   let result = new Map();
   list.forEach((item) => {
@@ -31,8 +26,8 @@ function Layovers({ list }) {
 
   return (
     <>
-      <div className="card shadow m-4 w-100">
-        <h2 className="card-header">My Layovers</h2>
+      <div className="card shadow m-3 w-100">
+        <h4 className="card-header">My Layovers</h4>
        {/* <ul>{layovers}</ul> */}
       <div className="card-body">
         <div className="row">

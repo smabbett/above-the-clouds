@@ -28,8 +28,8 @@ function TripLength({ rotations }) {
   //   );
   // });
   return (
-    <div className="card shadow m-4">
-      <h2 className="card-header">Trips by Length</h2>
+    <div className="card shadow m-3">
+      <h4 className="card-header">Trips by Length</h4>
       <div className="card-body">
       {/* <ul>{tripLengths}</ul> */}
      
