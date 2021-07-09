@@ -1,14 +1,16 @@
 import React from 'react';
 import Routes from './Routes';
 import Header from './Header';
+import Menu from './Menu';
 
 function Layout() {
-  return (
-    <div className="container-fluid">
-      <Header />
-      <Routes />
-    </div>
-  );
+	return (
+		<div className='container-fluid'>
+			<Header />
+			<Menu />
+			<Routes />
+		</div>
+	);
 }
 
 export default Layout;
