@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import NotFound from './NotFound';
 import Help from '../Help';
 import Dashboard from '../dashboard/Dashboard';
-import Demo from '../Demo';
+//import Demo from '../Demo';
 
 function Routes() {
 	return (

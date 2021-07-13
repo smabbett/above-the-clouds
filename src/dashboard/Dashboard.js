@@ -3,7 +3,7 @@ import { CSVReader } from 'react-papaparse';
 import formatRotations from '../utils/formatRotations';
 import Home from '../Home';
 import './Dashboard.css';
-import schedule_data from '../data/2016_SCHEDULE_DATA.CSV';
+//import schedule_data from '../data/2016_SCHEDULE_DATA.CSV';
 
 const headers = [
 	'arrv',

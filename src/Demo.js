@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Home from './Home';
 import Schedule_Data from './data/2016_SCHEDULE_DATA.CSV';
 import formatRotations from './utils/formatRotations';
-import { Papa } from 'papaparse';
+//import { Papa } from 'papaparse';
 
 function Demo() {
 	const [rotations, setRotations] = useState([]);
@@ -63,4 +63,4 @@ function Demo() {
 
 	return <Home rotations={rotations} />;
 }
-//export default Demo;
+export default Demo;
