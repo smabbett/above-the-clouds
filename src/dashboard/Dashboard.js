@@ -107,7 +107,7 @@ export default function Dashboard() {
 				<div className='card shadow m-3'>
 					<h4 className='card-header'>Drag or drop your file</h4>
 					<div className='card-body'>
-						<button
+						{/* <button
 							//type='file'
 							className='btn btn-primary m-2'
 							//value={schedule_data}
@@ -116,7 +116,7 @@ export default function Dashboard() {
 							//onDropSample={onDropSample}
 						>
 							Sample Data
-						</button>
+						</button> */}
 
 						<CSVReader
 							style={{
