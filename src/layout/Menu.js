@@ -25,6 +25,9 @@ function Menu() {
 					<a className='nav-item nav-link' href='/help'>
 						Help
 					</a>
+					{/* <a className='nav-item nav-link' href='/demo'>
+						Demo
+					</a> */}
 					<a
 						className='nav-item nav-link'
 						href='https://abbett-resume.vercel.app/'

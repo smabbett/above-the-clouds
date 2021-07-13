@@ -1,16 +1,9 @@
 import React, { useState } from 'react';
-import Pdf from 'react-to-pdf';
 import { CSVReader } from 'react-papaparse';
 import formatRotations from '../utils/formatRotations';
-import TimeAwayFromBase from '../TimeAwayFromBase';
-import FlightPay from '../FlightPay';
-import TripLength from '../TripLength';
-import Equipment from '../Equipment';
-import Layovers from '../Layovers';
-import ShareComponent from './ShareComponent';
+import Home from '../Home';
 import './Dashboard.css';
-
-const ref = React.createRef();
+import schedule_data from '../data/2016_SCHEDULE_DATA.CSV';
 
 const headers = [
 	'arrv',
@@ -39,15 +32,10 @@ const headers = [
 export default function Dashboard() {
 	const [rotations, setRotations] = useState([]);
 
-	//create array of flight segments
-	let list = [];
-	for (let value of rotations.values()) {
-		list.push(...value.segments);
-	}
 	let invalidFields = [];
 
 	const handleOnDrop = (e) => {
-		console.log('json', e);
+		console.log('e', e);
 		const result = [];
 		e.forEach((item) => result.push(item.data));
 
@@ -59,6 +47,8 @@ export default function Dashboard() {
 			console.log(`Invalid fields`, invalidFields);
 		} else {
 			const eMap = formatRotations([...result]);
+			console.log(eMap);
+
 			setRotations(eMap);
 		}
 	};
@@ -74,54 +64,7 @@ export default function Dashboard() {
 	};
 
 	if (rotations.size) {
-		let year = rotations.keys().next().value;
-		return (
-			<>
-				<div className='row'>
-					<div className='col text-right'>
-						<ShareComponent />
-						<Pdf
-							targetRef={ref}
-							filename={`MyTravelLog${year.slice(5)}.pdf`}
-							//scale={0.8}
-							//options={{ orientation: 'landscape' }}
-						>
-							{({ toPdf }) => (
-								<button
-									className='btn btn-danger rounded-circle m-2'
-									style={{ width: '45px', height: '45px' }}
-									onClick={toPdf}
-								>
-									<span className='oi oi-data-transfer-download'></span>
-								</button>
-							)}
-						</Pdf>
-					</div>
-				</div>
-				<div ref={ref}>
-					<div className='row'>
-						<div className='col-md-8 mb-1'>
-							<div className='card shadow h-100'>
-								<h4 className='card-header'>My Time</h4>
-								<div className='card-body'>
-									<div className='row'>
-										<TimeAwayFromBase rotations={rotations} list={list} />
-										<FlightPay rotations={rotations} />
-									</div>
-								</div>
-							</div>
-						</div>
-						<div className='col-md-4'>
-							<TripLength rotations={rotations} />
-							<Equipment list={list} />
-						</div>
-					</div>
-					<div className='row'>
-						<Layovers list={list} />
-					</div>
-				</div>
-			</>
-		);
+		return <Home rotations={rotations} />;
 	} else {
 		return (
 			<>
@@ -149,7 +92,7 @@ export default function Dashboard() {
 									<span className='oi oi-data-transfer-download'></span>
 								</button>
 							</p>
-							<ul className='list-unstyled text-center'>
+							<ul>
 								<li>How many times did I layover in Paris this year?</li>
 								<li>Where did I layover the most?</li>
 								<li>How much time did I spend on the road?</li>
@@ -164,6 +107,17 @@ export default function Dashboard() {
 				<div className='card shadow m-3'>
 					<h4 className='card-header'>Drag or drop your file</h4>
 					<div className='card-body'>
+						<button
+							//type='file'
+							className='btn btn-primary m-2'
+							//value={schedule_data}
+							draggable='true'
+							//onDragStart={onDragStart}
+							//onDropSample={onDropSample}
+						>
+							Sample Data
+						</button>
+
 						<CSVReader
 							style={{
 								dropAreaActive: {

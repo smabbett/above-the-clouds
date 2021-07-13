@@ -4,10 +4,10 @@ import Chart from 'react-google-charts';
 function TripLength({ rotations }) {
 	let result = new Map();
 	for (let [key, value] of rotations.entries()) {
-		let startDate = new Date(key);
-
-		let endDate = new Date(value.segments[value.segments.length - 1].dept_date);
-
+		let startDate = Date.parse(key);
+		let endDate = Date.parse(
+			value.segments[value.segments.length - 1].dept_date
+		);
 		let tripDays = Math.round(
 			endDate / (60 * 60 * 24 * 1000) - startDate / (60 * 60 * 24 * 1000) + 1
 		).toString();
@@ -19,14 +19,7 @@ function TripLength({ rotations }) {
 			result.set(tripDays, ++count);
 		}
 	}
-	// let resultArray = [...result];
-	// let tripLengths = resultArray.map((item, index) => {
-	//   return (
-	//     <li key={index}>
-	//       {item[0]} Day - {item[1]}
-	//     </li>
-	//   );
-	// });
+
 	return (
 		<div className='card shadow mb-1'>
 			<h4 className='card-header'>Trips by Length</h4>
