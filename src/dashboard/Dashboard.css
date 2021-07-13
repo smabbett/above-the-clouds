@@ -1,4 +1,12 @@
 .card-header {
 	background-color: #9fb4c7;
 	color: white;
+	font-size: 18px;
 }
+.table {
+	font-size: 10px;
+}
+
+/* .card {
+	height: 400px;
+} */

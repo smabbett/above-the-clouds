@@ -1,9 +1,8 @@
 import React from 'react';
-
 import { Route, Switch } from 'react-router-dom';
 import NotFound from './NotFound';
-import Dashboard from '../dashboard/Dashboard';
 import Help from '../Help';
+import Dashboard from '../dashboard/Dashboard';
 
 function Routes() {
 	return (
