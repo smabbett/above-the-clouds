@@ -107,6 +107,9 @@ export default function Dashboard() {
 				<div className='card shadow m-3'>
 					<h4 className='card-header'>Drag or drop your file</h4>
 					<div className='card-body'>
+						<a href='/data/2016_SCHEDULE_DATA.CSV' download>
+							<img src='/images/myw3schoolsimage.jpg' alt='W3Schools' />
+						</a>
 						{/* <button
 							//type='file'
 							className='btn btn-primary m-2'

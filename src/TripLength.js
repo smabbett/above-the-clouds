@@ -1,11 +1,12 @@
 import React from 'react';
 import Chart from 'react-google-charts';
+import { parseDate } from './utils/parseDate';
 
 function TripLength({ rotations }) {
 	let result = new Map();
 	for (let [key, value] of rotations.entries()) {
-		let startDate = Date.parse(key);
-		let endDate = Date.parse(
+		let startDate = parseDate(key);
+		let endDate = parseDate(
 			value.segments[value.segments.length - 1].dept_date
 		);
 		let tripDays = Math.round(
