@@ -33,21 +33,23 @@ function FlightPay({ rotations }) {
 						<tr>
 							<th scope='row'>Domestic Flying</th>
 							<td>
-								{daysHoursMinutesConvert(domPay)} ({domPay} minutes)
-								{/* {Math.round((domPay / flightPay) * 100)}% */}
+								{hoursMinutesConvert(domPay)} ({daysHoursMinutesConvert(domPay)}
+								){/* {Math.round((domPay / flightPay) * 100)}% */}
 							</td>
 						</tr>
 						<tr>
 							<th scope='row'>International Flying</th>
 							<td>
-								{daysHoursMinutesConvert(intlPay)} ({intlPay} minutes)
+								{hoursMinutesConvert(intlPay)} (
+								{daysHoursMinutesConvert(intlPay)})
 								{/* {Math.round((intlPay / flightPay) * 100)}% */}
 							</td>
 						</tr>
 						<tr>
 							<th scope='row'>Total</th>
 							<td>
-								{daysHoursMinutesConvert(flightPay)} ({flightPay} minutes)
+								{hoursMinutesConvert(flightPay)} (
+								{daysHoursMinutesConvert(flightPay)})
 							</td>
 						</tr>
 					</tbody>
