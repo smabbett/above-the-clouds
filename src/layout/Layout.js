@@ -5,7 +5,7 @@ import Menu from './Menu';
 
 function Layout() {
 	return (
-		<div className='container-fluid'>
+		<div>
 			<Header />
 			<Menu />
 			<Routes />

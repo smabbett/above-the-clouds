@@ -7,20 +7,22 @@ import Dashboard from '../dashboard/Dashboard';
 
 function Routes() {
 	return (
-		<Switch>
-			<Route exact={true} path='/'>
-				<Dashboard />
-			</Route>
-			<Route path='/help'>
-				<Help />
-			</Route>
-			{/* <Route path='/demo'>
+		<div className='container-fluid'>
+			<Switch>
+				<Route exact={true} path='/'>
+					<Dashboard />
+				</Route>
+				<Route path='/help'>
+					<Help />
+				</Route>
+				{/* <Route path='/demo'>
 				<Demo />
 			</Route> */}
-			<Route>
-				<NotFound />
-			</Route>
-		</Switch>
+				<Route>
+					<NotFound />
+				</Route>
+			</Switch>
+		</div>
 	);
 }
 export default Routes;
