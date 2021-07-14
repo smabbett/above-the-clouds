@@ -3,8 +3,8 @@ import { CSVReader } from 'react-papaparse';
 import formatRotations from '../utils/formatRotations';
 import Home from '../Home';
 import './Dashboard.css';
-//import schedule_data from '../data/2016_SCHEDULE_DATA.CSV';
 
+const demo = require('../data/demo-data');
 const headers = [
 	'arrv',
 	'arrv_time',
@@ -34,8 +34,11 @@ export default function Dashboard() {
 
 	let invalidFields = [];
 
+	const handleClick = () => {
+		const rotationsMap = formatRotations([...demo]);
+		setRotations(rotationsMap);
+	};
 	const handleOnDrop = (e) => {
-		console.log('e', e);
 		const result = [];
 		e.forEach((item) => result.push(item.data));
 
@@ -47,8 +50,6 @@ export default function Dashboard() {
 			console.log(`Invalid fields`, invalidFields);
 		} else {
 			const eMap = formatRotations([...result]);
-			console.log(eMap);
-
 			setRotations(eMap);
 		}
 	};
@@ -101,26 +102,19 @@ export default function Dashboard() {
 								<li>How many flight hours did I average this year?</li>
 								<li>Did I fly mostly turns or 3 day trips?</li>
 							</ul>
+							<button
+								className='btn btn-warning btn-block mx-auto w-50'
+								onClick={handleClick}
+							>
+								Demo
+							</button>
 						</div>
 					</div>
 				</div>
-				<div className='card shadow m-3'>
-					<h4 className='card-header'>Drag or drop your file</h4>
-					<div className='card-body'>
-						<a href='/data/2016_SCHEDULE_DATA.CSV' download>
-							<img src='/images/myw3schoolsimage.jpg' alt='W3Schools' />
-						</a>
-						{/* <button
-							//type='file'
-							className='btn btn-primary m-2'
-							//value={schedule_data}
-							draggable='true'
-							//onDragStart={onDragStart}
-							//onDropSample={onDropSample}
-						>
-							Sample Data
-						</button> */}
 
+				<div className='card shadow m-3'>
+					<h4 className='card-header'>Upload your file</h4>
+					<div className='card-body'>
 						<CSVReader
 							style={{
 								dropAreaActive: {

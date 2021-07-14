@@ -1,5 +1,5 @@
 .card-header {
-	background-color: #9fb4c7;
+	background-color: #63aeca;
 	color: white;
 	font-size: 18px;
 }
@@ -7,6 +7,7 @@
 	font-size: 10px;
 }
 
-/* .card {
-	height: 400px;
-} */
+.btn-block {
+	background-color: #63aeca;
+	border: #63aeca;
+}

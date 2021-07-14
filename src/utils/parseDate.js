@@ -17,7 +17,7 @@ export function parseDate(input) {
 	];
 	let fixedMonth = monthNums.indexOf(month);
 	var year = input.slice(5);
-	console.log(new Date(year, fixedMonth, date));
+
 	// new Date(year, month [, day [, hours[, minutes[, seconds[, ms]]]]])
 	return new Date(year, fixedMonth, date || 0); // Note: months are 0-based
 }
