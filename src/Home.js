@@ -26,7 +26,7 @@ export default function Home({ rotations }) {
 						<Pdf
 							targetRef={ref}
 							filename={`MyTravelLog${year.slice(5)}.pdf`}
-							//scale={0.8}
+							scale={0.8}
 							options={{ orientation: 'landscape' }}
 						>
 							{({ toPdf }) => (
