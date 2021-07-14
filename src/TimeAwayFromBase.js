@@ -69,7 +69,7 @@ function TimeAwayFromBase({ rotations, list }) {
 							<th scope='row'>Layover Time</th>
 							<td>
 								{hoursMinutesConvert(layoverHours)} (
-								{daysHoursMinutesConvert(tafb)})
+								{daysHoursMinutesConvert(layoverHours)})
 							</td>
 						</tr>
 						<tr>
