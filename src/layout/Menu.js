@@ -1,42 +1,63 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 function Menu() {
 	return (
-		<nav className='navbar navbar-expand-lg navbar-light bg-light'>
-			<a className='navbar-brand' href='/'>
-				Travel Log
-			</a>
-			<button
-				className='navbar-toggler'
-				type='button'
-				data-toggle='collapse'
-				data-target='#navbarNavAltMarkup'
-				aria-controls='navbarNavAltMarkup'
-				aria-expanded='false'
-				aria-label='Toggle navigation'
-			>
-				<span className='navbar-toggler-icon'></span>
-			</button>
-			<div className='collapse navbar-collapse' id='navbarNavAltMarkup'>
-				<div className='navbar-nav'>
-					<a className='nav-item nav-link active' href='/'>
-						Home <span className='sr-only'>(current)</span>
-					</a>
-					<a className='nav-item nav-link' href='/help'>
-						Help
-					</a>
-					{/* <a className='nav-item nav-link' href='/demo'>
-						Demo
-					</a> */}
-					<a
-						className='nav-item nav-link'
-						href='https://abbett-resume.vercel.app/'
-					>
-						About Me
-					</a>
+		<>
+			<nav className='navbar navbar-expand-lg navbar-light bg-light'>
+				<NavLink className='navbar-brand' to='/'>
+					Travel Log
+				</NavLink>
+				<button
+					className='navbar-toggler'
+					type='button'
+					data-toggle='collapse'
+					data-target='#navbarNavAltMarkup'
+					aria-controls='navbarNavAltMarkup'
+					aria-expanded='false'
+					aria-label='Toggle navigation'
+				>
+					<span className='navbar-toggler-icon'></span>
+				</button>
+				<div className='collapse navbar-collapse' id='navbarNavAltMarkup'>
+					<div className='navbar-nav'>
+						{/* <NavLink
+							className='nav-item nav-link'
+							to='/'
+							activeStyle={{
+								fontWeight: 'bold',
+								color: 'red',
+								textDecoration: 'underline',
+							}}
+						>
+							Home
+						</NavLink> */}
+						<NavLink
+							className='nav-item nav-link'
+							to='/help'
+							activeStyle={{
+								fontWeight: 'bold',
+								textDecoration: 'underline',
+								textUnderlineOffset: '3px',
+							}}
+						>
+							Help
+						</NavLink>
+						<NavLink
+							className='nav-item nav-link'
+							to='/about'
+							activeStyle={{
+								fontWeight: 'bold',
+								textDecoration: 'underline',
+								textUnderlineOffset: '3px',
+							}}
+						>
+							About Me
+						</NavLink>
+					</div>
 				</div>
-			</div>
-		</nav>
+			</nav>
+		</>
 	);
 }
 

@@ -3,6 +3,8 @@ import { CSVReader } from 'react-papaparse';
 import formatRotations from '../utils/formatRotations';
 import Home from '../Home';
 import './Dashboard.css';
+import ErrorAlert from '../layout/ErrorAlert';
+import { Link } from 'react-router-dom';
 
 const demo = require('../data/demo-data');
 const headers = [
@@ -31,7 +33,7 @@ const headers = [
 
 export default function Dashboard() {
 	const [rotations, setRotations] = useState([]);
-
+	const [error, setError] = useState(null);
 	let invalidFields = [];
 
 	const handleClick = () => {
@@ -48,6 +50,8 @@ export default function Dashboard() {
 
 		if (invalidFields.length) {
 			console.log(`Invalid fields`, invalidFields);
+			const message = `The CSV file is not valid.`;
+			setError(message);
 		} else {
 			const eMap = formatRotations([...result]);
 			setRotations(eMap);
@@ -62,6 +66,7 @@ export default function Dashboard() {
 		console.log('---------------------------');
 		console.log(data);
 		console.log('---------------------------');
+		setError(null);
 	};
 
 	if (rotations.size) {
@@ -74,13 +79,15 @@ export default function Dashboard() {
 						<div className='card-text'>
 							<p>
 								This is for Delta flight attendants only. I created this website
-								to take your <b>Schedule Leg Data</b> that you get in iCrew and
-								create a summary of your flight data.
+								to take your <b>Schedule Leg Data</b> that you find in iCrew and
+								create a summary of your flight data. For complete instructions
+								on downloading your flight data, click <b>Help.</b>
 							</p>
 							<p>
-								I am a former flight attendant and aspiring web developer. I
-								created this application to demonstrate my skills in CSS, HTML,
-								Javascript and React.js. I hope you enjoy it!
+								I flew for Delta and Northwest Airlines for 24 years. As a new
+								web developer, I created this application to demonstrate my
+								skills in CSS, HTML, Javascript and React.js. I hope you enjoy
+								it!
 							</p>
 							<p>
 								NOTE: Your data is not being saved. When the page is refreshed,
@@ -93,6 +100,7 @@ export default function Dashboard() {
 									<span className='oi oi-data-transfer-download'></span>
 								</button>
 							</p>
+							<p></p>
 							<ul>
 								<li>How many times did I layover in Paris this year?</li>
 								<li>Where did I layover the most?</li>
@@ -110,8 +118,12 @@ export default function Dashboard() {
 							</button>
 						</div>
 					</div>
+					<div className='card-footer'>
+						{' '}
+						<Link to='/privacy'>Privacy Policy</Link>
+					</div>
 				</div>
-
+				<ErrorAlert error={error} />
 				<div className='card shadow m-3'>
 					<h4 className='card-header'>Upload your file</h4>
 					<div className='card-body'>

@@ -37,10 +37,6 @@ function TimeAwayFromBase({ rotations, list }) {
 		return acc + item.layover_time;
 	}, 0);
 
-	//WANT TO CONVERT TIME TO HH:MM
-	// for (let [key,value] of result.entries()){
-	//  result.set(key, hoursMinutesConvert(value))
-	// }
 	let resultArray = [...result];
 	let monthCount = 0;
 	resultArray.forEach((item) => {
@@ -49,6 +45,7 @@ function TimeAwayFromBase({ rotations, list }) {
 		}
 		item.push(hoursMinutesConvert(item[1]));
 	});
+	console.log('resultArray', resultArray);
 	const totalHours = resultArray.reduce((acc, item) => {
 		return acc + item[1];
 	}, 0);
