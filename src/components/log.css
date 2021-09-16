@@ -1,0 +1,23 @@
+.container {
+	display: flex;
+	flex-flow: row wrap;
+}
+.item {
+	flex: 1 0 100px;
+
+	/* margin-right: 2em; */
+	border-right: 1px solid black;
+	padding: 2em;
+}
+.item-double {
+	flex: 2 0 200px;
+	/* margin: 0 2em; */
+}
+@media screen and (max-width: 600px) {
+	.container {
+		flex-direction: column;
+	}
+	.item-double {
+		flex: 1 0 100px;
+	}
+}

@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { CSVReader } from 'react-papaparse';
 import formatRotations from '../utils/formatRotations';
-import Home from '../Home';
+import TravelLog from '../components/TravelLog';
 import './Dashboard.css';
 import ErrorAlert from '../layout/ErrorAlert';
 import { Link } from 'react-router-dom';
+import Log from '../components/Log';
 
 const demo = require('../data/demo-data');
 const headers = [
@@ -38,6 +39,7 @@ export default function Dashboard() {
 
 	const handleClick = () => {
 		const rotationsMap = formatRotations([...demo]);
+		console.log('rotationsMap', rotationsMap);
 		setRotations(rotationsMap);
 	};
 	const handleOnDrop = (e) => {
@@ -54,6 +56,7 @@ export default function Dashboard() {
 			setError(message);
 		} else {
 			const eMap = formatRotations([...result]);
+
 			setRotations(eMap);
 		}
 	};
@@ -70,11 +73,12 @@ export default function Dashboard() {
 	};
 
 	if (rotations.size) {
-		return <Home rotations={rotations} />;
+		// return <TravelLog rotations={rotations} />;
+		return <TravelLog rotations={rotations} />;
 	} else {
 		return (
 			<>
-				<div className='card'>
+				{/* <div className='card'>
 					<div className='card-body'>
 						<div className='card-text'>
 							<p>
@@ -122,8 +126,8 @@ export default function Dashboard() {
 						{' '}
 						<Link to='/privacy'>Privacy Policy</Link>
 					</div>
-				</div>
-				<ErrorAlert error={error} />
+				</div> */}
+				{/* <ErrorAlert error={error} />
 				<div className='card shadow m-3'>
 					<h4 className='card-header'>Upload your file</h4>
 					<div className='card-body'>
@@ -150,7 +154,7 @@ export default function Dashboard() {
 							<span>Drop CSV file here or click to upload.</span>
 						</CSVReader>
 					</div>
-				</div>
+				</div> */}
 			</>
 		);
 	}

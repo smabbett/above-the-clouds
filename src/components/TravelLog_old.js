@@ -4,6 +4,7 @@ import FlightPay from './FlightPay';
 import TripLength from './TripLength';
 import Equipment from './Equipment';
 import Layovers from './Layovers';
+import Timeline from './Timeline';
 import ShareComponent from './ShareComponent';
 import Pdf from 'react-to-pdf';
 
@@ -20,6 +21,9 @@ export default function Home({ rotations }) {
 		let year = rotations.keys().next().value;
 		return (
 			<>
+				<div className='row'>
+					{/* <Timeline rotations={rotations} list={list} /> */}
+				</div>
 				<div className='row'>
 					<div className='col text-right'>
 						<ShareComponent />

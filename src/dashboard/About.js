@@ -1,15 +1,26 @@
 import React from 'react';
 import { useForm, ValidationError } from '@formspree/react';
-import './About.css';
-
+import '../dashboard/About.css';
+import AboutModal from './AboutModal';
+import Button from 'react-bootstrap/Button';
 export default function About() {
-	const [state, handleSubmit] = useForm('xjvjella');
-	if (state.succeeded) {
-		return <h1 className='text-center mt-4'>Thanks for your feedback!</h1>;
-	}
+	const [modalShow, setModalShow] = React.useState(false);
+	// const [state, handleSubmit] = useForm('xjvjella');
+	// if (state.succeeded) {
+	// 	return <h1 className='text-center mt-4'>Thanks for your feedback!</h1>;
+	// }
 	return (
 		<>
-			<div className='row'>
+			return (
+			<>
+				<Button variant='primary' onClick={() => setModalShow(true)}>
+					Launch vertically centered modal
+				</Button>
+
+				<AboutModal show={modalShow} onHide={() => setModalShow(false)} />
+			</>
+			);
+			{/* <div className='row'>
 				<div className='card col-5 m-auto about'>
 					<div className='card-body'>
 						<div className='card-text'>
@@ -105,7 +116,7 @@ export default function About() {
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> */}
 		</>
 	);
 }

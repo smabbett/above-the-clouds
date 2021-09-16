@@ -1,7 +1,7 @@
 import React from 'react';
-import screenshot1 from './images/screenshot1.png';
-import screenshot2 from './images/screenshot2.png';
-import screenshot3 from './images/screenshot3.png';
+import screenshot1 from '../images/screenshot1.png';
+import screenshot2 from '../images/screenshot2.png';
+import screenshot3 from '../images/screenshot3.png';
 
 function Help() {
 	return (

@@ -34,17 +34,6 @@ function Menu() {
 						</NavLink> */}
 						<NavLink
 							className='nav-item nav-link'
-							to='/help'
-							activeStyle={{
-								fontWeight: 'bold',
-								textDecoration: 'underline',
-								textUnderlineOffset: '3px',
-							}}
-						>
-							Help
-						</NavLink>
-						<NavLink
-							className='nav-item nav-link'
 							to='/about'
 							activeStyle={{
 								fontWeight: 'bold',
@@ -52,10 +41,32 @@ function Menu() {
 								textUnderlineOffset: '3px',
 							}}
 						>
-							About Me
+							About
 						</NavLink>
+						<NavLink
+							className='nav-item nav-link'
+							to='/help'
+							activeStyle={{
+								fontWeight: 'bold',
+								textDecoration: 'underline',
+								textUnderlineOffset: '3px',
+							}}
+						>
+							FAQs
+						</NavLink>
+						<a
+							className='nav-item nav-link'
+							href='https://www.buymeacoffee.com/smabbett'
+							target='blank'
+						>
+							Donate
+						</a>
 					</div>
 				</div>
+
+				<NavLink className='btn btn-primary' to={'/reader'}>
+					Upload Schedule Log
+				</NavLink>
 			</nav>
 		</>
 	);

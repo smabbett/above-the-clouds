@@ -1,7 +1,7 @@
 import React from 'react';
-import { daysHoursMinutesConvert } from './utils/time-conversion';
+import { daysHoursMinutesConvert } from '../utils/time-conversion';
 import { Chart } from 'react-google-charts';
-import { hoursMinutesConvert } from './utils/time-conversion';
+import { hoursMinutesConvert } from '../utils/time-conversion';
 
 function FlightPay({ rotations }) {
 	let flightPay = 0;

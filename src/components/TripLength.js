@@ -1,6 +1,6 @@
 import React from 'react';
 import Chart from 'react-google-charts';
-import { parseDate } from './utils/parseDate';
+import { parseDate } from '../utils/parseDate';
 
 function TripLength({ rotations }) {
 	let result = new Map();
