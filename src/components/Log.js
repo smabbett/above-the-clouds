@@ -1,5 +1,4 @@
 import React from 'react';
-import './log.css';
 import Chart from 'react-google-charts';
 
 export default function Log({ list }) {
@@ -16,11 +15,6 @@ export default function Log({ list }) {
 		}
 	});
 	return (
-		// <div className='container'>
-		// 	<div className='item'>Hello</div>
-		// 	<div className='item'>Hello</div>
-		// 	<div className='item-double'>
-		// 		<div className='item'>
 		<Chart
 			width={'100%'}
 			height={'300px'}
@@ -28,18 +22,14 @@ export default function Log({ list }) {
 			data={[['City', 'Layovers'], ...result]}
 			options={{
 				displayMode: 'markers',
-				colorAxis: { colors: ['#EFF2C0', '#A52422'] },
-				backgroundColor: '#C2E4FF',
-				datalessRegionColor: '#28536B',
+				colorAxis: { colors: ['#f72585', '#3a0ca3'] },
+				backgroundColor: '#cbe6ee',
+				datalessRegionColor: '#EAEAEA',
 				enableRegionInteractivity: true,
 				sizeAxis: { minValue: 0, maxSize: 10 },
 			}}
 			mapsApiKey='AIzaSyBwWq-oJkR_gEeqnY-mPI8LCneQg6zvX38'
-			rootProps={{ 'data-testid': '2' }}
+			rootProps={{ 'data-testid': '3' }}
 		/>
-		// 		</div>
-		// 		<div className='item'>Hello</div>
-		// 	</div>
-		// </div>
 	);
 }

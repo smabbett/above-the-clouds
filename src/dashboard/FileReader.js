@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { CSVReader } from 'react-papaparse';
 import formatRotations from '../utils/formatRotations';
-import TravelLog from '../components/TravelLog';
-import './Dashboard.css';
 import ErrorAlert from '../layout/ErrorAlert';
 
 const headers = [
@@ -29,8 +27,7 @@ const headers = [
 	'ttl_rotn_cred',
 ];
 
-export default function FileReader() {
-	const [rotations, setRotations] = useState([]);
+export default function FileReader({ setRotations }) {
 	const [error, setError] = useState(null);
 	let invalidFields = [];
 
@@ -48,7 +45,6 @@ export default function FileReader() {
 			setError(message);
 		} else {
 			const eMap = formatRotations([...result]);
-
 			setRotations(eMap);
 		}
 	};
@@ -64,37 +60,43 @@ export default function FileReader() {
 		setError(null);
 	};
 
-	if (rotations.size) {
-		// return <TravelLog rotations={rotations} />;
-		return <TravelLog rotations={rotations} />;
-	} else {
-		return (
-			<>
-				<ErrorAlert error={error} />
+	// if (rotations.size) {
+	// 	return <TravelLog rotations={rotations} />;
+	// 	history.push({ pathname: '/', state: rotations });
+	// } else {
+	return (
+		<>
+			<ErrorAlert error={error} />
 
-				<CSVReader
-					style={{
-						dropAreaActive: {
-							borderColor: 'red',
-							backgroundColor: 'yellow',
-						},
-					}}
-					onDrop={handleOnDrop}
-					onError={handleOnError}
-					addRemoveButton
-					removeButtonColor='#659cef'
-					onRemoveFile={handleOnRemoveFile}
-					config={{
-						header: true,
-						skipEmptyLines: true,
-						dynamicTyping: true,
-						transformHeader: (header) =>
-							header.replace('#', 'num').replaceAll(' ', '_').toLowerCase(),
-					}}
-				>
-					<span>Drop CSV file here or click to upload.</span>
-				</CSVReader>
-			</>
-		);
-	}
+			<CSVReader
+				style={{
+					dropArea: {
+						width: 180,
+						height: 40,
+						borderRadius: 5,
+						background: '#18a0fb',
+						color: 'white',
+						padding: 6,
+						borderWidth: 0,
+					},
+				}}
+				onDrop={handleOnDrop}
+				onError={handleOnError}
+				noDrag
+				addRemoveButton
+				removeButtonColor='#659cef'
+				onRemoveFile={handleOnRemoveFile}
+				config={{
+					header: true,
+					skipEmptyLines: true,
+					dynamicTyping: true,
+					transformHeader: (header) =>
+						header.replace('#', 'num').replaceAll(' ', '_').toLowerCase(),
+				}}
+			>
+				<span>Upload Schedule Log</span>
+			</CSVReader>
+		</>
+	);
+	// }
 }

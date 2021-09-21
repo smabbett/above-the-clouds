@@ -1,7 +1,6 @@
 import React from 'react';
 import { daysHoursMinutesConvert } from '../utils/time-conversion';
-import { Chart } from 'react-google-charts';
-import { hoursMinutesConvert } from '../utils/time-conversion';
+import './FlightPay.css';
 
 function FlightPay({ rotations }) {
 	let flightPay = 0;
@@ -16,62 +15,42 @@ function FlightPay({ rotations }) {
 
 	return (
 		<>
-			<div className='col-md-6'>
-				{/* <div className="card shadow m-3"> */}
-				{/* <h4 className="card-header">My Flying</h4> */}
-				{/* <div className="card-body"> */}
-				<table className='table table-hover'>
-					<tbody>
-						<tr>
-							<th scope='row'>First Rotation Date</th>
-							<td>{rotations.keys().next().value}</td>
-						</tr>
-						<tr>
-							<th scope='row'>Last Rotation Date</th>
-							<td>{Array.from(rotations.keys()).pop()}</td>
-						</tr>
-						<tr>
-							<th scope='row'>Domestic Flying</th>
-							<td>
-								{hoursMinutesConvert(domPay)} ({daysHoursMinutesConvert(domPay)}
-								){/* {Math.round((domPay / flightPay) * 100)}% */}
-							</td>
-						</tr>
-						<tr>
-							<th scope='row'>International Flying</th>
-							<td>
-								{hoursMinutesConvert(intlPay)} (
-								{daysHoursMinutesConvert(intlPay)})
-								{/* {Math.round((intlPay / flightPay) * 100)}% */}
-							</td>
-						</tr>
-						<tr>
-							<th scope='row'>Total</th>
-							<td>
-								{hoursMinutesConvert(flightPay)} (
-								{daysHoursMinutesConvert(flightPay)})
-							</td>
-						</tr>
-					</tbody>
-				</table>
-
-				<Chart
-					width={'100%'}
-					height={'200px'}
-					chartType='PieChart'
-					loader={<div>Loading Chart</div>}
-					data={[
-						['Type of Flying', 'Hours', { role: 'tooltip', type: 'string' }],
-						['International', intlPay, hoursMinutesConvert(intlPay)],
-						['Domestic', domPay, hoursMinutesConvert(domPay)],
-					]}
-					options={{
-						title: 'My Flying',
-						is3D: true,
-					}}
-					rootProps={{ 'data-testid': '1' }}
-				/>
+			<p className='medium-text'>
+				In {rotations.keys().next().value.slice(5)}, I spent
+			</p>
+			<div className='bkgd-airplane d-flex mx-auto align-items-center justify-content-center'>
+				<div className='small-text circle d-flex flex-column'>
+					{daysHoursMinutesConvert(flightPay)} inflight
+				</div>
 			</div>
+			<div className='row mt-3'>
+				<div className='col small-text'>
+					<h6>Domestic Flights</h6>
+					<p> {daysHoursMinutesConvert(domPay)}</p>
+				</div>
+				<div className='col small-text'>
+					<h6>International Flights</h6>
+					<p>{daysHoursMinutesConvert(intlPay)}</p>
+				</div>
+			</div>
+			{/* 
+		
+			<Chart
+				width={'100%'}
+				height={'200px'}
+				chartType='PieChart'
+				loader={<div>Loading Chart</div>}
+				data={[
+					['Type of Flying', 'Hours', { role: 'tooltip', type: 'string' }],
+					['International', intlPay, hoursMinutesConvert(intlPay)],
+					['Domestic', domPay, hoursMinutesConvert(domPay)],
+				]}
+				options={{
+					title: 'My Flying',
+					is3D: true,
+				}}
+				rootProps={{ 'data-testid': '6' }}
+			/> */}
 		</>
 	);
 }

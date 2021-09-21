@@ -1,12 +1,13 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import FileReader from '../dashboard/FileReader';
 
-function Menu() {
+function Menu({ setRotations }) {
 	return (
 		<>
-			<nav className='navbar navbar-expand-lg navbar-light bg-light'>
+			<nav className='navbar sticky-top navbar-expand-lg navbar-light bg-light shadow'>
 				<NavLink className='navbar-brand' to='/'>
-					Travel Log
+					Above The Clouds
 				</NavLink>
 				<button
 					className='navbar-toggler'
@@ -21,17 +22,6 @@ function Menu() {
 				</button>
 				<div className='collapse navbar-collapse' id='navbarNavAltMarkup'>
 					<div className='navbar-nav'>
-						{/* <NavLink
-							className='nav-item nav-link'
-							to='/'
-							activeStyle={{
-								fontWeight: 'bold',
-								color: 'red',
-								textDecoration: 'underline',
-							}}
-						>
-							Home
-						</NavLink> */}
 						<NavLink
 							className='nav-item nav-link'
 							to='/about'
@@ -45,7 +35,7 @@ function Menu() {
 						</NavLink>
 						<NavLink
 							className='nav-item nav-link'
-							to='/help'
+							to='/faq'
 							activeStyle={{
 								fontWeight: 'bold',
 								textDecoration: 'underline',
@@ -64,9 +54,10 @@ function Menu() {
 					</div>
 				</div>
 
-				<NavLink className='btn btn-primary' to={'/reader'}>
+				{/* <NavLink className='btn btn-primary' to={'/reader'}>
 					Upload Schedule Log
-				</NavLink>
+				</NavLink> */}
+				<FileReader setRotations={setRotations} />
 			</nav>
 		</>
 	);

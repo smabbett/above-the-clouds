@@ -1,7 +1,6 @@
 import React from 'react';
 import { daysHoursMinutesConvert } from '../utils/time-conversion';
 import { hoursMinutesConvert } from '../utils/time-conversion';
-import Chart from 'react-google-charts';
 
 function TimeAwayFromBase({ rotations, list }) {
 	let tafb = 0;
@@ -45,7 +44,7 @@ function TimeAwayFromBase({ rotations, list }) {
 		}
 		item.push(hoursMinutesConvert(item[1]));
 	});
-	console.log('resultArray', resultArray);
+
 	const totalHours = resultArray.reduce((acc, item) => {
 		return acc + item[1];
 	}, 0);
@@ -53,53 +52,47 @@ function TimeAwayFromBase({ rotations, list }) {
 
 	return (
 		<>
-			<div className='col-md-6'>
-				<table className='table table-hover'>
-					<tbody>
-						<tr>
-							<th scope='row'>Time Away From Base</th>
-							<td>
-								{hoursMinutesConvert(tafb)} ({daysHoursMinutesConvert(tafb)})
-							</td>
-						</tr>
-						<tr>
-							<th scope='row'>Layover Time</th>
-							<td>
-								{hoursMinutesConvert(layoverHours)} (
-								{daysHoursMinutesConvert(layoverHours)})
-							</td>
-						</tr>
-						<tr>
-							<th scope='row'>Monthly Average</th>
-							<td>{avg} (HH:MM)</td>
-						</tr>
-					</tbody>
-				</table>
+			<p className='medium-text'>
+				My total time away from base was {daysHoursMinutesConvert(tafb)}
+				{/* {hoursMinutesConvert(tafb)}  */}
+			</p>
+			<hr></hr>
+			<p>
+				My layover time was {daysHoursMinutesConvert(layoverHours)}
+				{/* {hoursMinutesConvert(layoverHours)} */}
+			</p>
+			<hr></hr>
+			<p>My monthly average flying was {avg} </p>
+			<hr></hr>
+			<p>
+				My first rotation was {rotations.keys().next().value} and my last
+				rotation was {Array.from(rotations.keys()).pop()}
+			</p>
 
-				<Chart
-					width={'100%'}
-					height={'250px'}
-					chartType='BarChart'
-					loader={<div>Loading Chart</div>}
-					data={[
-						// Note the third column definition
-						[
-							'Month',
-							'Flight Block Time (minutes)',
-							{ role: 'tooltip', type: 'string' },
-						],
+			{/* <Chart
+				width={'100%'}
+				height={'250px'}
+				chartType='BarChart'
+				loader={<div>Loading Chart</div>}
+				data={[
+					// Note the third column definition
+					[
+						'Month',
+						'Flight Block Time (minutes)',
+						{ role: 'tooltip', type: 'string' },
+					],
 
-						...resultArray,
-					]}
-					options={{
-						title: 'Monthly Flying',
-						chartArea: { width: '50%' },
-						// This must be also set to render the tooltip with html (vs svg)
-						// tooltip: { isHtml: true, trigger: "visible" }
-					}}
-					rootProps={{ 'data-testid': '1' }}
-				/>
-			</div>
+					...resultArray,
+				]}
+				options={{
+					title: 'Monthly Flying',
+					chartArea: { width: '50%' },
+					// This must be also set to render the tooltip with html (vs svg)
+					// tooltip: { isHtml: true, trigger: "visible" }
+				}}
+				rootProps={{ 'data-testid': '7' }}
+			/> */}
+			{/* </div> */}
 		</>
 	);
 }

@@ -3,20 +3,18 @@ import { Route, Switch } from 'react-router-dom';
 import NotFound from '../dashboard/NotFound';
 import Help from '../dashboard/Help';
 import Dashboard from '../dashboard/Dashboard';
-import About from '../dashboard/About';
 import Privacy from '../dashboard/Privacy';
-import FileReader from '../dashboard/FileReader';
 import AboutModal from '../dashboard/AboutModal';
+import Faq from '../components/Faq';
 
-function Routes() {
+function Routes({ rotations, setRotations }) {
 	return (
-		// <div className='container-fluid'>
 		<Switch>
 			<Route exact={true} path='/'>
-				<Dashboard />
+				<Dashboard rotations={rotations} setRotations={setRotations} />
 			</Route>
-			<Route path='/reader'>
-				<FileReader />
+			<Route path='/faq'>
+				<Faq />
 			</Route>
 			<Route path='/help'>
 				<Help />
@@ -31,7 +29,6 @@ function Routes() {
 				<NotFound />
 			</Route>
 		</Switch>
-		// </div>
 	);
 }
 export default Routes;

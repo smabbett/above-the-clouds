@@ -6,74 +6,54 @@ function Layovers({ list }) {
 	let result = new Map();
 	list.forEach((item) => {
 		if (item.layover_stn !== '   ') {
-			if (!result.has(item.layover_stn + ' airport')) {
-				result.set(item.layover_stn + ' airport', 1);
+			if (!result.has(item.layover_stn)) {
+				result.set(item.layover_stn, 1);
 			} else {
-				let count = result.get(item.layover_stn + ' airport');
-				result.set(item.layover_stn + ' airport', ++count);
+				let count = result.get(item.layover_stn);
+				result.set(item.layover_stn, ++count);
 			}
 		}
 	});
+	let dataArray = [...result];
+	let sortedMap = new Map(dataArray.sort((a, b) => b[1] - a[1]));
+
+	let sentence = '';
+	switch (sortedMap.keys().next().value) {
+		case 'CDG':
+			sentence = 'Parlez-vous Français?';
+			break;
+		case 'LHR':
+		case 'LGW':
+			sentence = 'Fancy a cuppa?';
+			break;
+		case 'AMS':
+			sentence = 'Spreek je Nederlands?';
+			break;
+		default:
+			sentence = 'Was it a Holiday Inn or Doubletree?';
+	}
 
 	return (
 		<>
-			<div className='col-12'>
-				<div className='card shadow'>
-					<h4 className='card-header'>My Layovers</h4>
-					<div className='card-body'>
-						<div className='row'>
-							<div className='col-sm'>
-								<Chart
-									width={'100%'}
-									height={'300px'}
-									chartType='PieChart'
-									loader={<div>Loading Chart</div>}
-									data={[['Airport Code', 'Number of Visits'], ...result]}
-									options={{
-										title: 'My Layovers',
-										// sliceVisibilityThreshold: 0.05, //5%
-										is3D: true,
-									}}
-									rootProps={{ 'data-testid': '1' }}
-								/>
-							</div>
-
-							<div className='col-sm'>
-								<Chart
-									width={'500px'}
-									height={'300px'}
-									chartType='GeoChart'
-									data={[['City', 'Layovers'], ...result]}
-									options={{
-										displayMode: 'markers',
-										colorAxis: { colors: ['#EFF2C0', '#A52422'] },
-										backgroundColor: '#C2E4FF',
-										datalessRegionColor: '#28536B',
-										enableRegionInteractivity: true,
-										sizeAxis: { minValue: 0, maxSize: 10 },
-									}}
-									mapsApiKey='AIzaSyBwWq-oJkR_gEeqnY-mPI8LCneQg6zvX38'
-									rootProps={{ 'data-testid': '2' }}
-								/>
-
-								{/* <Chart
-									width={'100%'}
-									height={'300px'}
-									chartType='Bar'
-									loader={<div>Loading Chart</div>}
-									data={[['Airport Code', 'Layovers'], ...result]}
-									options={{
-										// Material design options
-										chart: {
-											title: 'My Layovers',
-										},
-									}}
-									// For tests
-									rootProps={{ 'data-testid': '2' }}
-								/> */}
-							</div>
-						</div>
-					</div>
+			<div className='mx-auto align-items-center justify-content-center row'>
+				<div className='col-3'>
+					{sentence} I had {sortedMap.values().next().value} layovers at{' '}
+					{sortedMap.keys().next().value}.
+				</div>
+				<div className='col-8 mt-3'>
+					<Chart
+						chartType='Bar'
+						loader={<div>Loading Chart</div>}
+						data={[['Airport Code', 'Layovers'], ...sortedMap]}
+						options={{
+							legend: { position: 'none' },
+							colors: ['#3a0ca3'],
+							//font not working?
+							fontName: 'Nunito',
+						}}
+						// For tests
+						rootProps={{ 'data-testid': '2' }}
+					/>
 				</div>
 			</div>
 		</>

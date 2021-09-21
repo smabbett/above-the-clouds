@@ -1,15 +1,18 @@
-import React from 'react';
-import { Route, Switch } from 'react-router-dom';
-import Layout from './layout/Layout';
+import React, { useState } from 'react';
+import Menu from './layout/Menu';
+import Routes from './layout/Routes';
+import Footer from './layout/Footer';
+import './App.css';
 
 function App() {
-  return (
-    <Switch>
-      <Route path="/">
-        <Layout />
-      </Route>
-    </Switch>
-  );
+	const [rotations, setRotations] = useState([]);
+	return (
+		<div>
+			<Menu setRotations={setRotations} />
+			<Routes rotations={rotations} setRotations={setRotations} />
+			<Footer />
+		</div>
+	);
 }
 
 export default App;

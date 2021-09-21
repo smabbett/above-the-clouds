@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css?family=Homemade+Apple&display=swap');
+
+.signature {
+	font-family: 'Homemade Apple';
+	font-size: 22px;
+}
+
+.selfie {
+	width: 80px;
+	border-radius: 50%;
+	margin: 15px;
+}
+.modal-title {
+	font-weight: 700;
+	font-size: 24px;
+}
+.modal-header {
+	justify-content: center;
+}
+.modal-body {
+	margin: 5px;
+}
+.btn {
+	width: 372px;
+}
+.modal-footer {
+	justify-content: center;
+}

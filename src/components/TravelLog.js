@@ -1,7 +1,12 @@
 import React from 'react';
-import './log.css';
-import Chart from 'react-google-charts';
+import FlightPay from './FlightPay';
 import Log from './Log';
+import TimeAwayFromBase from './TimeAwayFromBase';
+import Timeline from './Timeline';
+import Equipment from './Equipment';
+import Layovers from './Layovers';
+import TripLength from './TripLength';
+import './TravelLog.css';
 
 export default function TravelLog({ rotations }) {
 	//create array of flight segments
@@ -9,27 +14,28 @@ export default function TravelLog({ rotations }) {
 	for (let value of rotations.values()) {
 		list.push(...value.segments);
 	}
-	//use Map to count layovers by city
-	let result = new Map();
-	list.forEach((item) => {
-		if (item.layover_stn !== '   ') {
-			if (!result.has(item.layover_stn + ' airport')) {
-				result.set(item.layover_stn + ' airport', 1);
-			} else {
-				let count = result.get(item.layover_stn + ' airport');
-				result.set(item.layover_stn + ' airport', ++count);
-			}
-		}
-	});
+
 	return (
-		<div className='container'>
-			<div className='item'>Hello</div>
-			<div className='item'>Hello</div>
-			<div className='item-double'>
-				<div className='item'>
-					<Log list={list} />
+		<div className='container-fluid'>
+			<h2 className='mt-2'>
+				My travel log in {rotations.keys().next().value.slice(5)}
+			</h2>
+			<Timeline rotations={rotations} />
+			<div className='row'>
+				<div className='col-md-3'>
+					<TimeAwayFromBase rotations={rotations} list={list} />
+					<hr></hr>
+					<TripLength rotations={rotations} />
 				</div>
-				<div className='item'>Hello</div>
+				<div className='col-md-3 bordered'>
+					<FlightPay rotations={rotations} />
+					<hr></hr>
+					<Equipment list={list} />
+				</div>
+				<div className='col-md-6'>
+					<Log list={list} />
+					<Layovers list={list} />
+				</div>
 			</div>
 		</div>
 	);
