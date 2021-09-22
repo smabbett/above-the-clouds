@@ -1,6 +1,5 @@
 import React from 'react';
 import { Chart } from 'react-google-charts';
-import { parseDate } from '../utils/parseDate';
 import './Timeline.css';
 
 export default function Timeline({ rotations }) {
@@ -12,7 +11,16 @@ export default function Timeline({ rotations }) {
 		startDate.setHours(0, 0, 0);
 		let endDate = new Date(value.segments[value.segments.length - 1].dept_date);
 		endDate.setHours(24, 0, 0);
-		result.push([rotNumber, startDate, endDate]);
+		result.push([
+			rotNumber,
+			`${rotNumber} ${startDate.toString().slice(0, 11)} - ${new Date(
+				value.segments[value.segments.length - 1].dept_date
+			)
+				.toString()
+				.slice(0, 11)}`,
+			startDate,
+			endDate,
+		]);
 	}
 	console.log('timeline', result);
 
@@ -29,6 +37,7 @@ export default function Timeline({ rotations }) {
 				[
 					{ type: 'string', id: 'Year' },
 					{ type: 'string', id: 'Rotation' },
+					{ type: 'string', role: 'tooltip' },
 					{ type: 'date', id: 'Start' },
 					{ type: 'date', id: 'End' },
 				],

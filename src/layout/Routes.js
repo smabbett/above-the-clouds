@@ -4,7 +4,7 @@ import NotFound from '../dashboard/NotFound';
 import Help from '../dashboard/Help';
 import Dashboard from '../dashboard/Dashboard';
 import Privacy from '../dashboard/Privacy';
-import AboutModal from '../dashboard/AboutModal';
+import About from '../dashboard/About';
 import Faq from '../components/Faq';
 
 function Routes({ rotations, setRotations }) {
@@ -20,7 +20,7 @@ function Routes({ rotations, setRotations }) {
 				<Help />
 			</Route>
 			<Route path='/about'>
-				<AboutModal />
+				<About />
 			</Route>
 			<Route path='/privacy'>
 				<Privacy />
