@@ -8,9 +8,23 @@ export default function Timeline({ rotations }) {
 	for (let [key, value] of rotations.entries()) {
 		let rotNumber = 'Rotation ' + value.rotation.toString();
 		let startDate = new Date(key);
-		startDate.setHours(0, 0, 0);
+		//new Date(year, month, date, hours, minutes, seconds, ms)
+		//startDate.setHours(0, 0, 0);
+		let startYear = startDate.getFullYear();
+		let startMonth = startDate.getMonth();
+		let startDay = startDate.getDate();
+		console.log(`(${startYear}, ${startMonth}, ${startDay}, 0, 0, 0, 0)`);
+		let start = new Date(startYear, startMonth, startDay, 0, 0, 0, 0);
+
+		console.log('start', start);
 		let endDate = new Date(value.segments[value.segments.length - 1].dept_date);
-		endDate.setHours(24, 0, 0);
+		//endDate.setHours(24, 0, 0);
+		let endYear = endDate.getFullYear();
+		let endMonth = endDate.getMonth();
+		let endDay = endDate.getDate();
+		let end = new Date(endYear, endMonth, endDay, 24, 0, 0, 0);
+		console.log('end', end);
+
 		result.push([
 			rotNumber,
 			`${rotNumber} ${startDate.toString().slice(0, 11)} - ${new Date(
@@ -18,14 +32,14 @@ export default function Timeline({ rotations }) {
 			)
 				.toString()
 				.slice(0, 11)}`,
-			startDate,
-			endDate,
+			start,
+			end,
 		]);
 	}
 	console.log('timeline', result);
 
 	let resultArray = [...result];
-	console.log(resultArray);
+	console.log('resultArray', resultArray);
 	resultArray.forEach((e) => e.unshift(rotations.keys().next().value.slice(5)));
 	return (
 		<Chart

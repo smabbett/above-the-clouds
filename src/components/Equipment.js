@@ -44,7 +44,6 @@ function Equipment({ list }) {
 	];
 
 	let sortedMap = new Map(dataArray.sort((a, b) => b[1] - a[1]));
-	console.log('sorted', [...sortedMap]);
 
 	return (
 		<Chart
