@@ -29,7 +29,7 @@ export default function Timeline({ rotations }) {
 	resultArray.forEach((e) => e.unshift(rotations.keys().next().value.slice(5)));
 	return (
 		<Chart
-			width={'100%'}
+			//width={'100%'}
 			// height={'200px'}
 			chartType='Timeline'
 			loader={<div>Loading Chart</div>}
@@ -46,7 +46,7 @@ export default function Timeline({ rotations }) {
 			options={{
 				timeline: { showRowLabels: false, showBarLabels: false },
 				height: 100,
-				minWidth: 500,
+				//width: '80%',
 			}}
 			rootProps={{ 'data-testid': '4' }}
 		/>
