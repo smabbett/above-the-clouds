@@ -1,10 +1,15 @@
-#reactgooglegraph-1 text {
+text {
 	font-family: 'Nunito';
 }
 
 /* On screens that are 600px or less, set the background color to olive */
-/* @media screen and (max-width: 600px) {
-	#reactgooglegraph-1 {
-		width: 80%;
+/* @media screen and (max-width: 900px) {
+	#reactgooglegraph-6 {
+		width: 900px;
 	}
 } */
+#chart_wrapper {
+	overflow-x: scroll;
+	overflow-y: hidden;
+	/* width: 400px; */
+}
