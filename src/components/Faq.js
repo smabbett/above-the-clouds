@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import './Faq.css';
 
@@ -59,9 +59,11 @@ export default function Faq() {
 		return <QuestionDetail key={index} question={question} />;
 	});
 	return (
-		<div className='row mx-auto w-50' style={{ height: '80vh' }}>
-			<h2>Frequently Asked Questions (FAQs)</h2>
-			{list}
+		<div className='my-4'>
+			<h1 className='w-50 mx-auto'>Frequently Asked Questions (FAQs)</h1>
+			<div className='row'>
+				<div className='col-md-6 mx-auto mt-4'>{list}</div>
+			</div>
 		</div>
 	);
 }

@@ -17,7 +17,7 @@ export default function TravelLog({ rotations }) {
 
 	return (
 		<div className='container-fluid'>
-			<h2 className='mt-2'>
+			<h2 className='mt-4'>
 				My travel log in {rotations.keys().next().value.slice(5)}
 			</h2>
 			<Timeline rotations={rotations} />

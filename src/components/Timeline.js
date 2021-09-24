@@ -25,11 +25,13 @@ export default function Timeline({ rotations }) {
 
 		result.push([
 			rotNumber,
-			`${rotNumber} ${startDate.toString().slice(0, 11)} - ${new Date(
+			`<div style="padding:5px 5px 5px 5px;width:150px"><h6>${rotNumber}</h6><p>${startDate
+				.toString()
+				.slice(0, 11)} - ${new Date(
 				value.segments[value.segments.length - 1].dept_date
 			)
 				.toString()
-				.slice(0, 11)}`,
+				.slice(0, 11)}</p></div>`,
 			startDate,
 			endDate,
 		]);
@@ -50,7 +52,7 @@ export default function Timeline({ rotations }) {
 					[
 						{ type: 'string', id: 'Year' },
 						{ type: 'string', id: 'Rotation' },
-						{ type: 'string', role: 'tooltip' },
+						{ type: 'string', role: 'tooltip', p: { html: true } },
 						{ type: 'date', id: 'Start' },
 						{ type: 'date', id: 'End' },
 					],
@@ -58,8 +60,9 @@ export default function Timeline({ rotations }) {
 				]}
 				options={{
 					timeline: { showRowLabels: false, showBarLabels: false },
-					height: 100,
+
 					width: 1400,
+					tooltip: { isHtml: true },
 				}}
 				rootProps={{ 'data-testid': '4' }}
 			/>

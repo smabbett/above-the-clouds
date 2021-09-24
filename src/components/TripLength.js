@@ -25,35 +25,42 @@ function TripLength({ rotations }) {
 	let sortedMap = new Map(dataArray.sort((a, b) => b[1] - a[1]));
 
 	return (
-		<Chart
-			// width={'100%'}
-			// height={'350px'}
-			chartType='PieChart'
-			loader={<div>Loading Chart</div>}
-			data={[['Trip Length', 'Total Flown'], ...sortedMap]}
-			options={{
-				title: 'Trip Length',
-				// is3D: true,
-				legend: 'none',
-				fontName: 'Nunito',
-				slices: {
-					0: { offset: 0.3, color: '#560bad' },
-					1: { color: '#26c926' },
-					2: { color: '#3f37c9' },
-					3: { color: '#f72585' },
-					4: { color: '#ffca3a' },
-					5: { color: '#3a0ca3' },
-					6: { color: '#7209b7' },
-					7: { color: '#4361ee' },
-					8: { color: '#8ac926' },
-					9: { color: '#4cc9f0' },
-					10: { color: '#480ca8' },
-					11: { color: '#4895ef' },
-					12: { color: '#b5179e' },
-				},
-			}}
-			rootProps={{ 'data-testid': '5' }}
-		/>
+		<>
+			<Chart
+				// width={'100%'}
+				// height={'350px'}
+				chartType='PieChart'
+				loader={<div>Loading Chart</div>}
+				data={[['Trip Length', 'Total Flown'], ...sortedMap]}
+				options={{
+					title: 'Trip Length',
+					// is3D: true,
+					legend: 'none',
+					fontName: 'Nunito',
+					slices: {
+						0: { offset: 0.3, color: '#560bad' },
+						1: { color: '#26c926' },
+						2: { color: '#3f37c9' },
+						3: { color: '#f72585' },
+						4: { color: '#ffca3a' },
+						5: { color: '#3a0ca3' },
+						6: { color: '#7209b7' },
+						7: { color: '#4361ee' },
+						8: { color: '#8ac926' },
+						9: { color: '#4cc9f0' },
+						10: { color: '#480ca8' },
+						11: { color: '#4895ef' },
+						12: { color: '#b5179e' },
+					},
+				}}
+				rootProps={{ 'data-testid': '5' }}
+			/>
+			<hr></hr>
+			<p>
+				My first rotation was {rotations.keys().next().value} and my last
+				rotation was {Array.from(rotations.keys()).pop()}
+			</p>
+		</>
 	);
 }
 export default TripLength;

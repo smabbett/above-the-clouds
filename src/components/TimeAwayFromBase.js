@@ -63,11 +63,6 @@ function TimeAwayFromBase({ rotations, list }) {
 			</p>
 			<hr></hr>
 			<p>My monthly average flying was {avg} </p>
-			<hr></hr>
-			<p>
-				My first rotation was {rotations.keys().next().value} and my last
-				rotation was {Array.from(rotations.keys()).pop()}
-			</p>
 
 			{/* <Chart
 				width={'100%'}
@@ -77,16 +72,25 @@ function TimeAwayFromBase({ rotations, list }) {
 				data={[
 					// Note the third column definition
 					[
-						'Month',
-						'Flight Block Time (minutes)',
-						{ role: 'tooltip', type: 'string' },
+						'Tafb',
+						'Layover',
+						'Domestic Flying',
+						'International Flying',
+						'Lost Time',
 					],
 
-					...resultArray,
+					[
+						'TAFB',
+						layoverHours,
+						domPay,
+						intlPay,
+						tafb - (layoverHours + domPay + intlPay),
+					],
 				]}
 				options={{
-					title: 'Monthly Flying',
-					chartArea: { width: '50%' },
+					title: 'My Time',
+					isStacked: true,
+					//chartArea: { width: '50%' },
 					// This must be also set to render the tooltip with html (vs svg)
 					// tooltip: { isHtml: true, trigger: "visible" }
 				}}

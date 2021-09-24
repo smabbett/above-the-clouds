@@ -24,13 +24,13 @@ function FlightPay({ rotations }) {
 				</div>
 			</div>
 			<div className='row mt-3'>
-				<div className='col small-text'>
+				<div className='col'>
 					<h6>Domestic Flights</h6>
-					<p> {daysHoursMinutesConvert(domPay)}</p>
+					<p className='small-text'> {daysHoursMinutesConvert(domPay)}</p>
 				</div>
-				<div className='col small-text'>
+				<div className='col'>
 					<h6>International Flights</h6>
-					<p>{daysHoursMinutesConvert(intlPay)}</p>
+					<p className='small-text'>{daysHoursMinutesConvert(intlPay)}</p>
 				</div>
 			</div>
 			{/* 

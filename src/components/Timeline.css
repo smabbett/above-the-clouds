@@ -2,10 +2,10 @@ text {
 	font-family: 'Nunito';
 }
 
-/* On screens that are 600px or less, set the background color to olive */
+/* On screens that are 900px or less, hide timeline */
 /* @media screen and (max-width: 900px) {
-	#reactgooglegraph-6 {
-		width: 900px;
+	#reactgooglegraph-1 {
+		display: none;
 	}
 } */
 #chart_wrapper {

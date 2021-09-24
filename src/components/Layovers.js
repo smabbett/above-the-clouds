@@ -35,11 +35,7 @@ function Layovers({ list }) {
 
 	return (
 		<>
-			<div className='mx-auto align-items-center justify-content-center row'>
-				<div className='col-3'>
-					{sentence} I had {sortedMap.values().next().value} layovers at{' '}
-					{sortedMap.keys().next().value}.
-				</div>
+			<div className='row'>
 				<div className='col-8 mt-3'>
 					<Chart
 						chartType='Bar'
@@ -54,6 +50,10 @@ function Layovers({ list }) {
 						// For tests
 						rootProps={{ 'data-testid': '2' }}
 					/>
+				</div>
+				<div className='col-3 mx-auto align-self-center'>
+					{sentence} I had {sortedMap.values().next().value} layovers at{' '}
+					{sortedMap.keys().next().value}.
 				</div>
 			</div>
 		</>

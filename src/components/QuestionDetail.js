@@ -5,8 +5,9 @@ export default function QuestionDetail({ question }) {
 	const [isActive, setIsActive] = useState(false);
 
 	return (
-		<div>
-			<p className='question' onClick={() => setIsActive(!isActive)}>
+		<>
+			<hr></hr>
+			<p className='question d-flex' onClick={() => setIsActive(!isActive)}>
 				<span
 					className={classNames({
 						oi: true,
@@ -17,7 +18,7 @@ export default function QuestionDetail({ question }) {
 				/>
 				{question.question}
 			</p>
-			{isActive ? <p>{question.answer}</p> : ''}
-		</div>
+			{isActive ? <p className='ml-4'>{question.answer}</p> : ''}
+		</>
 	);
 }
