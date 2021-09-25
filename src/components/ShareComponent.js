@@ -15,7 +15,7 @@ export default function ShareComponent() {
 	return (
 		<>
 			<FacebookShareButton
-				url={'https://travel-log-pied.vercel.app/'}
+				url={'https://above-the-clouds.vercel.app/'}
 				style={{ margin: '4px' }}
 				quote={
 					'A travel log for Delta flight attendants. A summary of all your flying this year!'
@@ -25,30 +25,30 @@ export default function ShareComponent() {
 				<FacebookIcon size={45} round={true}></FacebookIcon>
 			</FacebookShareButton>
 			<LinkedinShareButton
-				url={'https://travel-log-pied.vercel.app/'}
+				url={'https://above-the-clouds.vercel.app/'}
 				style={{ margin: '4px' }}
-				title={'My Travel Log'}
+				title={'Above The Clouds'}
 				summary={
-					'A travel log for Delta flight attendants. A summary of all your flying this year!'
+					'A fun, interactive travel log for Delta flight attendants. A summary of all your flying this year!'
 				}
 				// source={'My Travel Log'}
 			>
 				<LinkedinIcon size={45} round={true}></LinkedinIcon>
 			</LinkedinShareButton>
 			<TwitterShareButton
-				url={'https://travel-log-pied.vercel.app/'}
+				url={'https://above-the-clouds.vercel.app/'}
 				style={{ margin: '4px' }}
-				title={'My Travel Log'}
+				title={'Above The Clouds'}
 				hashtags={['#DeltaFlightAttendants', '#Travel', '#Airlines']}
 			>
 				<TwitterIcon size={45} round={true}></TwitterIcon>
 			</TwitterShareButton>
 			<EmailShareButton
-				url={'https://travel-log-pied.vercel.app/'}
+				url={'https://above-the-clouds.vercel.app/'}
 				style={{ margin: '4px' }}
-				subject={'My Travel Log'}
+				subject={'Above The Clouds'}
 				body={
-					'Check this out! You can create a log of all your flying this year!'
+					'A fun, interactive travel log for Delta flight attendants. A summary of all your flying this year!'
 				}
 			>
 				<EmailIcon size={45} round={true}></EmailIcon>

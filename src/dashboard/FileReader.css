@@ -1,0 +1,11 @@
+.round.round-lg {
+	height: 43px;
+	width: 43px;
+	line-height: 40px;
+	-moz-border-radius: 20px;
+	border-radius: 20px;
+	font-size: 1em;
+	text-align: center;
+	background-color: var(--secondary);
+	color: white;
+}

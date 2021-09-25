@@ -44,8 +44,6 @@ export default function Timeline({ rotations }) {
 	return (
 		<div id='chart_wrapper'>
 			<Chart
-				//width={'100%'}
-				// height={'200px'}
 				chartType='Timeline'
 				loader={<div>Loading Chart</div>}
 				data={[
@@ -60,8 +58,8 @@ export default function Timeline({ rotations }) {
 				]}
 				options={{
 					timeline: { showRowLabels: false, showBarLabels: false },
-
-					width: 1400,
+					height: 100,
+					// width: 1400,
 					tooltip: { isHtml: true },
 				}}
 				rootProps={{ 'data-testid': '4' }}

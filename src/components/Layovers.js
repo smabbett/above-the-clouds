@@ -42,6 +42,7 @@ function Layovers({ list }) {
 						loader={<div>Loading Chart</div>}
 						data={[['Airport Code', 'Layovers'], ...sortedMap]}
 						options={{
+							hAxis: { fontName: 'Nunito' },
 							legend: { position: 'none' },
 							colors: ['#3a0ca3'],
 							//font not working?

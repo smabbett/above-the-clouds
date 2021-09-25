@@ -1,4 +1,5 @@
 import React from 'react';
+import { useMediaQuery } from 'react-responsive';
 import FlightPay from './FlightPay';
 import Log from './Log';
 import TimeAwayFromBase from './TimeAwayFromBase';
@@ -9,6 +10,9 @@ import TripLength from './TripLength';
 import './TravelLog.css';
 
 export default function TravelLog({ rotations }) {
+	const isDesktopOrLaptop = useMediaQuery({
+		query: '(min-width:1224px)',
+	});
 	//create array of flight segments
 	let list = [];
 	for (let value of rotations.values()) {
@@ -20,7 +24,7 @@ export default function TravelLog({ rotations }) {
 			<h2 className='mt-4'>
 				My travel log in {rotations.keys().next().value.slice(5)}
 			</h2>
-			<Timeline rotations={rotations} />
+			{isDesktopOrLaptop && <Timeline rotations={rotations} />}
 			<div className='row'>
 				<div className='col-md-3'>
 					<TimeAwayFromBase rotations={rotations} list={list} />

@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router';
 import { CSVReader } from 'react-papaparse';
 import formatRotations from '../utils/formatRotations';
 import ErrorAlert from '../layout/ErrorAlert';
+import ShareComponent from '../components/ShareComponent';
+import './FileReader.css';
 
 const headers = [
 	'arrv',
@@ -29,7 +32,9 @@ const headers = [
 
 export default function FileReader({ setRotations }) {
 	const [error, setError] = useState(null);
+	const [isActive, setIsActive] = useState(false);
 	let invalidFields = [];
+	const history = useHistory();
 
 	const handleOnDrop = (e) => {
 		const result = [];
@@ -46,56 +51,67 @@ export default function FileReader({ setRotations }) {
 		} else {
 			const eMap = formatRotations([...result]);
 			setRotations(eMap);
+			setIsActive(true);
+			history.push('/');
 		}
 	};
 
 	const handleOnError = (err, file, inputElem, reason) => {
-		console.log(err);
+		setError(err);
 	};
 
 	const handleOnRemoveFile = (data) => {
 		console.log('---------------------------');
 		console.log(data);
 		console.log('---------------------------');
+		setIsActive(false);
 		setError(null);
 	};
 
-	// if (rotations.size) {
-	// 	return <TravelLog rotations={rotations} />;
-	// 	history.push({ pathname: '/', state: rotations });
-	// } else {
 	return (
 		<>
 			<ErrorAlert error={error} />
+			{isActive ? (
+				<>
+					{/* <button className='btn btn-primary' style={{ width: '99px' }}>
+						Share
+					</button> */}
+					<ShareComponent />
 
-			<CSVReader
-				style={{
-					dropArea: {
-						width: 180,
-						height: 40,
-						borderRadius: 5,
-						background: '#18a0fb',
-						color: 'white',
-						padding: 6,
-						borderWidth: 0,
-					},
-				}}
-				onDrop={handleOnDrop}
-				onError={handleOnError}
-				noDrag
-				addRemoveButton
-				removeButtonColor='#659cef'
-				onRemoveFile={handleOnRemoveFile}
-				config={{
-					header: true,
-					skipEmptyLines: true,
-					dynamicTyping: true,
-					transformHeader: (header) =>
-						header.replace('#', 'num').replaceAll(' ', '_').toLowerCase(),
-				}}
-			>
-				<span>Upload Schedule Log</span>
-			</CSVReader>
+					<div className='round round-lg red'>
+						<span className='oi oi-x' onClick={handleOnRemoveFile}></span>
+					</div>
+				</>
+			) : (
+				<CSVReader
+					style={{
+						dropArea: {
+							width: 198,
+							height: 40,
+							borderRadius: 5,
+							background: '#18a0fb',
+							color: 'white',
+							padding: 6,
+							borderWidth: 0,
+						},
+					}}
+					onDrop={handleOnDrop}
+					onError={handleOnError}
+					noDrag
+					addRemoveButton
+					removeButtonColor='#659cef'
+					onRemoveFile={handleOnRemoveFile}
+					config={{
+						header: true,
+						skipEmptyLines: true,
+						dynamicTyping: true,
+						transformHeader: (header) =>
+							header.replace('#', 'num').replaceAll(' ', '_').toLowerCase(),
+					}}
+				>
+					<span>Upload Schedule Log</span>
+				</CSVReader>
+			)}
 		</>
 	);
 	// }
