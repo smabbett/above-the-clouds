@@ -108,8 +108,7 @@ export default function Faq() {
 								</li>
 								<li className='card-text'>
 									Locate the file on your computer. On a Mac, check the
-									Downloads folder. Hold and drag the file over the drop zone on
-									the web page. Your data will be displayed on the web page.
+									Downloads folder. Your data will be displayed on the web page.
 								</li>
 							</ul>
 							<ul>

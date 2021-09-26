@@ -18,7 +18,7 @@ export default function QuestionDetail({ question }) {
 				/>
 				{question.question}
 			</p>
-			{isActive ? <p className='ml-4'>{question.answer}</p> : ''}
+			{isActive ? <p className='ml-4 mr-2'>{question.answer}</p> : ''}
 		</>
 	);
 }
