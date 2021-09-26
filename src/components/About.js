@@ -76,6 +76,7 @@ export default function About() {
 							</svg>
 						</a>
 					</div>
+					<hr></hr>
 					<h1 className='w-50 mx-auto'>Contact Me</h1>
 					<form onSubmit={handleSubmit}>
 						<div className='form-group'>
