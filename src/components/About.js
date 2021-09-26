@@ -77,7 +77,7 @@ export default function About() {
 						</a>
 					</div>
 					<hr></hr>
-					<h1 className='w-50 mx-auto'>Contact Me</h1>
+					<h1 className='w-50 mx-auto text-center'>Contact Me</h1>
 					<form onSubmit={handleSubmit}>
 						<div className='form-group'>
 							<input
@@ -123,7 +123,7 @@ export default function About() {
 								errors={state.errors}
 							/>
 						</div>
-
+						{/* <div className='text-center'> */}
 						<button
 							className='btn btn-primary'
 							type='submit'
@@ -131,6 +131,7 @@ export default function About() {
 						>
 							Submit
 						</button>
+						{/* </div> */}
 					</form>
 				</div>
 			</div>
