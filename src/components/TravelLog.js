@@ -10,9 +10,9 @@ import TripLength from './TripLength';
 import './TravelLog.css';
 
 export default function TravelLog({ rotations }) {
-	const isDesktopOrLaptop = useMediaQuery({
-		query: '(min-width:1224px)',
-	});
+	// const isDesktopOrLaptop = useMediaQuery({
+	// 	query: '(min-width:1224px)',
+	// });
 	//create array of flight segments
 	let list = [];
 	for (let value of rotations.values()) {
@@ -25,6 +25,7 @@ export default function TravelLog({ rotations }) {
 				My travel log in {rotations.keys().next().value.slice(5)}
 			</h2>
 			{isDesktopOrLaptop && <Timeline rotations={rotations} />}
+			<Timeline rotations={rotations} />
 			<div className='row'>
 				<div className='col-md-3'>
 					<TimeAwayFromBase rotations={rotations} list={list} />
