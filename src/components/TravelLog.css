@@ -1,4 +1,4 @@
 .bordered {
-	border-left: black solid 1px;
-	border-right: black solid 1px;
+	border-left: var(--border) solid 1px;
+	border-right: var(--border) solid 1px;
 }

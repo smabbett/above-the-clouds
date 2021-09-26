@@ -3,7 +3,7 @@ import { useHistory } from 'react-router';
 import { CSVReader } from 'react-papaparse';
 import formatRotations from '../utils/formatRotations';
 import ErrorAlert from '../layout/ErrorAlert';
-import ShareComponent from '../components/ShareComponent';
+import ShareComponent from './ShareComponent';
 import './FileReader.css';
 
 const headers = [

@@ -1,10 +1,8 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import NotFound from '../dashboard/NotFound';
-import Help from '../dashboard/Help';
+import NotFound from './NotFound';
 import Dashboard from '../dashboard/Dashboard';
-import Privacy from '../dashboard/Privacy';
-import About from '../dashboard/About';
+import About from '../components/About';
 import Faq from '../components/Faq';
 
 function Routes({ rotations, setRotations }) {
@@ -16,14 +14,8 @@ function Routes({ rotations, setRotations }) {
 			<Route path='/faq'>
 				<Faq />
 			</Route>
-			<Route path='/help'>
-				<Help />
-			</Route>
 			<Route path='/about'>
 				<About />
-			</Route>
-			<Route path='/privacy'>
-				<Privacy />
 			</Route>
 			<Route>
 				<NotFound />

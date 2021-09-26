@@ -43,4 +43,6 @@ h2 {
 	--secondary: #ff0c3e;
 	--light-text: #ffffff;
 	--dark-text: #d1d1d1;
+
+	--border: rgba(0, 0, 0, 0.1);
 }

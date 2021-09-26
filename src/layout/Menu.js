@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import FileReader from '../dashboard/FileReader';
+import FileReader from '../components/FileReader';
 
 function Menu({ setRotations }) {
 	return (

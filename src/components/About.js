@@ -8,9 +8,9 @@ export default function About() {
 		return <h1 className='text-center mt-4'>Thanks for your feedback!</h1>;
 	}
 	return (
-		<div className='container-fluid'>
-			<div className='row mt-4'>
-				<div className='col-md-6 align-self-center'>
+		<div className='my-4'>
+			<div className='row'>
+				<div className='col-md-6 mx-auto mt-4'>
 					<p>Thanks for stopping by! I hope you enjoy this website! </p>
 					<p>
 						I flew for Delta and Nortwest from 1996 to 2020. I had a great
@@ -25,7 +25,7 @@ export default function About() {
 					</p>
 					<p className='signature'>Sarah Abbett</p>
 
-					<div className='social-icons'>
+					<div className='mb-4 social-icons'>
 						<a
 							className='social-icon'
 							href='https://www.linkedin.com/in/sarah-abbett/'
@@ -76,20 +76,15 @@ export default function About() {
 							</svg>
 						</a>
 					</div>
-				</div>
-
-				<div className='col-md-6'>
-					<h1>Contact Me</h1>
+					<h1 className='w-50 mx-auto'>Contact Me</h1>
 					<form onSubmit={handleSubmit}>
 						<div className='form-group'>
-							<label htmlFor='name' className='form-label'>
-								Name:{' '}
-							</label>
 							<input
 								className='form-control'
 								id='name'
 								type='text'
 								name='name'
+								placeholder='Name'
 							/>
 							<ValidationError
 								prefix='Name'
@@ -99,14 +94,12 @@ export default function About() {
 						</div>
 
 						<div className='form-group'>
-							<label htmlFor='email' className='form-label'>
-								Email Address:{' '}
-							</label>
 							<input
 								className='form-control'
 								id='email'
 								type='email'
 								name='email'
+								placeholder='Email'
 							/>
 							<ValidationError
 								prefix='Email'
@@ -116,14 +109,12 @@ export default function About() {
 						</div>
 
 						<div className='form-group'>
-							<label htmlFor='message' className='form-label'>
-								Your message:{' '}
-							</label>
 							<textarea
 								className='form-control'
 								rows='3'
 								id='message'
 								name='message'
+								placeholder='Your message'
 							/>
 							<ValidationError
 								prefix='Message'
