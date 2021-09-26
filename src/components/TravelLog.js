@@ -24,7 +24,7 @@ export default function TravelLog({ rotations }) {
 			<h2 className='mt-4'>
 				My travel log in {rotations.keys().next().value.slice(5)}
 			</h2>
-			{isDesktopOrLaptop && <Timeline rotations={rotations} />}
+			{/* {isDesktopOrLaptop && <Timeline rotations={rotations} />} */}
 			<Timeline rotations={rotations} />
 			<div className='row'>
 				<div className='col-md-3'>
