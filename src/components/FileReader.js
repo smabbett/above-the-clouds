@@ -79,7 +79,7 @@ export default function FileReader({ setRotations }) {
 					<div className='row'>
 						<ShareComponent />
 
-						<div className='round round-lg red my-4'>
+						<div className='round round-lg red my-4 ml-2'>
 							<span className='oi oi-x' onClick={handleOnRemoveFile}></span>
 						</div>
 					</div>
