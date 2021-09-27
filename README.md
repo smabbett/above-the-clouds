@@ -20,6 +20,12 @@
 
 - [Above The Clouds](https://above-the-clouds.vercel.app/)
 
+## Screenshots
+
+![Screenshot](./src/images/modal.png)
+
+![Screenshot](./src/images/dashboard.png)
+
 ## What I Learned
 
 - React-Papaparse
@@ -33,3 +39,8 @@
 - Formspree
 
 - React-Bootstrap-Modal
+
+## Future Upgrades
+
+> A database to store flight data by user.
+> Compare data year to year.

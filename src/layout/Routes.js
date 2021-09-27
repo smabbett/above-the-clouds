@@ -7,20 +7,22 @@ import Faq from '../components/Faq';
 
 function Routes({ rotations, setRotations }) {
 	return (
-		<Switch>
-			<Route exact={true} path='/'>
-				<Dashboard rotations={rotations} setRotations={setRotations} />
-			</Route>
-			<Route path='/faq'>
-				<Faq />
-			</Route>
-			<Route path='/about'>
-				<About />
-			</Route>
-			<Route>
-				<NotFound />
-			</Route>
-		</Switch>
+		<div className='container-sm'>
+			<Switch>
+				<Route exact={true} path='/'>
+					<Dashboard rotations={rotations} setRotations={setRotations} />
+				</Route>
+				<Route path='/faq'>
+					<Faq />
+				</Route>
+				<Route path='/about'>
+					<About />
+				</Route>
+				<Route>
+					<NotFound />
+				</Route>
+			</Switch>
+		</div>
 	);
 }
 export default Routes;

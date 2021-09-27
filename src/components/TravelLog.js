@@ -20,7 +20,7 @@ export default function TravelLog({ rotations }) {
 	}
 
 	return (
-		<div className='container-fluid'>
+		<>
 			<h2 className='mt-4'>
 				My travel log in {rotations.keys().next().value.slice(5)}
 			</h2>
@@ -42,6 +42,6 @@ export default function TravelLog({ rotations }) {
 					<Layovers list={list} />
 				</div>
 			</div>
-		</div>
+		</>
 	);
 }
