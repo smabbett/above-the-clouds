@@ -39,7 +39,8 @@ export default function Timeline({ rotations }) {
 
 		result.push([
 			rotNumber,
-			`<div style="padding:5px 5px 5px 5px;width:150px"><h6>${rotNumber}</h6><p>${startDate} - ${endDate}
+			`<div style="padding:5px 5px 5px 5px; width:fit-content;
+            height:fit-content;white-space:nowrap;"><h6>${rotNumber}</h6><p>${startDate} - ${endDate}
 			</p></div>`,
 			start,
 			end,
