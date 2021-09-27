@@ -128,7 +128,7 @@ export default function Faq() {
 		return <QuestionDetail key={index} question={question} />;
 	});
 	return (
-		<div className='my-4'>
+		<div className='container my-4'>
 			<h1 className='w-50 mx-auto'>Frequently Asked Questions (FAQs)</h1>
 			<div className='row'>
 				<div className='col-md-6 mx-auto mt-4'>{list}</div>

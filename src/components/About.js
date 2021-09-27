@@ -8,7 +8,7 @@ export default function About() {
 		return <h1 className='text-center mt-4'>Thanks for your feedback!</h1>;
 	}
 	return (
-		<div className='my-4'>
+		<div className='container my-4'>
 			<div className='row'>
 				<div className='col-md-6 mx-auto mt-4'>
 					<p>Thanks for stopping by! I hope you enjoy this website! </p>
