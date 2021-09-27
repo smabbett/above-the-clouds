@@ -4,34 +4,43 @@ import './Timeline.css';
 
 export default function Timeline({ rotations }) {
 	let result = [];
+	let months = [
+		'JAN',
+		'FEB',
+		'MAR',
+		'APR',
+		'MAY',
+		'JUN',
+		'JUL',
+		'AUG',
+		'SEP',
+		'OCT',
+		'NOV',
+		'DEC',
+	];
 
 	for (let [key, value] of rotations.entries()) {
 		let rotNumber = 'Rotation ' + value.rotation.toString();
-		let startDate = new Date(key);
+		let startDate = key;
 
 		// startDate.setHours(0, 0, 0);
-		let startYear = startDate.getFullYear();
-		let startMonth = startDate.getMonth();
-		let startDay = startDate.getDate();
+		let startDay = startDate.slice(0, 2);
+		let startMonth = months.findIndex((e) => e === startDate.slice(2, 5));
+		let startYear = startDate.slice(5);
 
 		let start = new Date(startYear, startMonth, startDay, 0, 0, 0);
 
-		let endDate = new Date(value.segments[value.segments.length - 1].dept_date);
+		let endDate = value.segments[value.segments.length - 1].dept_date;
 		// endDate.setHours(24, 0, 0);
-		let endYear = endDate.getFullYear();
-		let endMonth = endDate.getMonth();
-		let endDay = endDate.getDate();
+		let endDay = endDate.slice(0, 2);
+		let endMonth = months.findIndex((e, index) => e === endDate.slice(2, 5));
+		let endYear = endDate.slice(5);
 		let end = new Date(endYear, endMonth, endDay, 24, 0, 0);
 
 		result.push([
 			rotNumber,
-			`<div style="padding:5px 5px 5px 5px;width:150px"><h6>${rotNumber}</h6><p>${startDate
-				.toString()
-				.slice(0, 11)} - ${new Date(
-				value.segments[value.segments.length - 1].dept_date
-			)
-				.toString()
-				.slice(0, 11)}</p></div>`,
+			`<div style="padding:5px 5px 5px 5px;width:150px"><h6>${rotNumber}</h6><p>${startDate} - ${endDate}
+			</p></div>`,
 			start,
 			end,
 		]);
