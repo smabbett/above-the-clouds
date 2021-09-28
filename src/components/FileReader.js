@@ -88,6 +88,7 @@ export default function FileReader({ setRotations }) {
 								fontSize: '44px',
 								border: 'none',
 								padding: '2px 0px 0px 4px',
+								marginRight: '8px',
 							}}
 							onClick={handleOnRemoveFile}
 						></span>
