@@ -5,7 +5,7 @@ import './About.css';
 export default function About() {
 	const [state, handleSubmit] = useForm('xjvjella');
 	if (state.succeeded) {
-		return <h1 className='text-center mt-4'>Thanks for your feedback!</h1>;
+		return <h1 className='text-center mt-4'>Thanks for reaching out!</h1>;
 	}
 	return (
 		<div className='container my-4'>

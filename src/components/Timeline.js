@@ -69,7 +69,7 @@ export default function Timeline({ rotations }) {
 				options={{
 					timeline: { showRowLabels: false, showBarLabels: false },
 					height: 100,
-					// width: 1400,
+					//width: 1400,
 					tooltip: { isHtml: true },
 				}}
 				rootProps={{ 'data-testid': '4' }}

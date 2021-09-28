@@ -2,14 +2,13 @@ text {
 	font-family: 'Nunito';
 }
 
-/* On screens that are 900px or less, hide timeline */
-/* @media screen and (max-width: 900px) {
+/* On screens that are 900px or less, set width timeline */
+@media screen and (max-width: 900px) {
 	#reactgooglegraph-1 {
-		display: none;
+		width: 1200px;
 	}
-} */
+}
 #chart_wrapper {
 	overflow-x: scroll;
 	overflow-y: hidden;
-	/* width: 400px; */
 }

@@ -76,12 +76,21 @@ export default function FileReader({ setRotations }) {
 					{/* <button className='btn btn-primary' style={{ width: '99px' }}>
 						Share
 					</button> */}
-					<div className='row'>
+					<div className='row d-flex align-items-center'>
 						<ShareComponent />
 
-						<div className='round round-lg red my-4 ml-2'>
-							<span className='oi oi-x' onClick={handleOnRemoveFile}></span>
-						</div>
+						<span
+							className='oi oi-circle-x'
+							style={{
+								color: 'red',
+								width: '45px',
+								height: '45px',
+								fontSize: '44px',
+								border: 'none',
+								paddingTop: '2px',
+							}}
+							onClick={handleOnRemoveFile}
+						></span>
 					</div>
 				</>
 			) : (

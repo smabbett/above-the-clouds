@@ -7,7 +7,7 @@ function Menu({ setRotations }) {
 		<>
 			<nav className='navbar sticky-top navbar-expand-lg navbar-light bg-light shadow'>
 				<NavLink className='navbar-brand' to='/'>
-					Above The Clouds
+					In The Clouds
 				</NavLink>
 				<button
 					className='navbar-toggler'

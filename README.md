@@ -1,4 +1,4 @@
-# Up In The Clouds
+# In The Clouds
 
 > I created this project after completing a coding bootcamp at Thinkful. This is a personal project for Delta Airlines flight attendants, my former coworkers.
 
@@ -18,7 +18,7 @@
 
 ## Deployment
 
-- [Above The Clouds](https://above-the-clouds.vercel.app/)
+- [In The Clouds](https://above-the-clouds.vercel.app/)
 
 ## Screenshots
 

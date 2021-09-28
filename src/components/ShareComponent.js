@@ -27,7 +27,7 @@ export default function ShareComponent() {
 			<LinkedinShareButton
 				url={'https://above-the-clouds.vercel.app/'}
 				style={{ margin: '4px' }}
-				title={'Above The Clouds'}
+				title={'In The Clouds'}
 				summary={
 					'A fun, interactive travel log for Delta flight attendants. A summary of all your flying this year!'
 				}
@@ -38,7 +38,7 @@ export default function ShareComponent() {
 			<TwitterShareButton
 				url={'https://above-the-clouds.vercel.app/'}
 				style={{ margin: '4px' }}
-				title={'Above The Clouds'}
+				title={'In The Clouds'}
 				hashtags={['#DeltaFlightAttendants', '#Travel', '#Airlines']}
 			>
 				<TwitterIcon size={45} round={true}></TwitterIcon>
@@ -46,7 +46,7 @@ export default function ShareComponent() {
 			<EmailShareButton
 				url={'https://above-the-clouds.vercel.app/'}
 				style={{ margin: '4px' }}
-				subject={'Above The Clouds'}
+				subject={'In The Clouds'}
 				body={
 					'A fun, interactive travel log for Delta flight attendants. A summary of all your flying this year!'
 				}
