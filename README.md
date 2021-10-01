@@ -26,6 +26,8 @@
 
 ![Screenshot](./src/images/dashboard.png)
 
+![Screenshot](./src/images/sharing.png)
+
 ## What I Learned
 
 - React-Papaparse

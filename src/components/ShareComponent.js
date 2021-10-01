@@ -15,7 +15,7 @@ export default function ShareComponent() {
 	return (
 		<>
 			<FacebookShareButton
-				url={'https://above-the-clouds.vercel.app/'}
+				url={'https://intheclouds.us/'}
 				style={{ margin: '4px' }}
 				quote={
 					'A travel log for Delta flight attendants. A summary of all your flying this year!'
@@ -25,7 +25,7 @@ export default function ShareComponent() {
 				<FacebookIcon size={45} round={true}></FacebookIcon>
 			</FacebookShareButton>
 			<LinkedinShareButton
-				url={'https://above-the-clouds.vercel.app/'}
+				url={'https://intheclouds.us/'}
 				style={{ margin: '4px' }}
 				title={'In The Clouds'}
 				summary={
@@ -36,7 +36,7 @@ export default function ShareComponent() {
 				<LinkedinIcon size={45} round={true}></LinkedinIcon>
 			</LinkedinShareButton>
 			<TwitterShareButton
-				url={'https://above-the-clouds.vercel.app/'}
+				url={'https://intheclouds.us/'}
 				style={{ margin: '4px' }}
 				title={'In The Clouds'}
 				hashtags={['#DeltaFlightAttendants', '#Travel', '#Airlines']}
@@ -44,7 +44,7 @@ export default function ShareComponent() {
 				<TwitterIcon size={45} round={true}></TwitterIcon>
 			</TwitterShareButton>
 			<EmailShareButton
-				url={'https://above-the-clouds.vercel.app/'}
+				url={'https://intheclouds.us/'}
 				style={{ margin: '4px' }}
 				subject={'In The Clouds'}
 				body={
