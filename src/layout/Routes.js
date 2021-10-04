@@ -4,6 +4,7 @@ import NotFound from './NotFound';
 import Dashboard from '../dashboard/Dashboard';
 import About from '../components/About';
 import Faq from '../components/Faq';
+import Privacy from '../components/Privacy';
 
 function Routes({ rotations, setRotations }) {
 	return (
@@ -16,6 +17,9 @@ function Routes({ rotations, setRotations }) {
 			</Route>
 			<Route path='/about'>
 				<About />
+			</Route>
+			<Route path='/privacy'>
+				<Privacy />
 			</Route>
 			<Route>
 				<NotFound />

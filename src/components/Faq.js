@@ -129,7 +129,9 @@ export default function Faq() {
 	});
 	return (
 		<div className='container my-4'>
-			<h1 className='w-50 mx-auto'>Frequently Asked Questions (FAQs)</h1>
+			<h1 className='w-50 mx-auto text-center'>
+				Frequently Asked Questions (FAQs)
+			</h1>
 			<div className='row'>
 				<div className='col-md-6 mx-auto mt-4'>{list}</div>
 			</div>

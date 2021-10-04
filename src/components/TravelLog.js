@@ -22,7 +22,7 @@ export default function TravelLog({ rotations }) {
 	return (
 		<div className='container-fluid'>
 			<h2 className='mt-4'>
-				My time in the clouds {rotations.keys().next().value.slice(5)}
+				In The Clouds {rotations.keys().next().value.slice(5)}
 			</h2>
 			{/* {isDesktopOrLaptop && <Timeline rotations={rotations} />} */}
 			<Timeline rotations={rotations} />

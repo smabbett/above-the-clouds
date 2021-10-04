@@ -9,20 +9,32 @@ export default function About() {
 	}
 	return (
 		<div className='container my-4'>
+			<h1 className='w-50 mx-auto text-center'>About</h1>
 			<div className='row'>
 				<div className='col-md-6 mx-auto mt-4'>
-					<p>Thanks for stopping by! I hope you enjoy this website! </p>
+					<p>Thanks for stopping by! </p>
 					<p>
-						I flew for Delta and Nortwest from 1996 to 2020. I had a great
-						career full of adventures and made lots of amazing friendships along
-						the way. But, throughout my career, I kept wondering what if...
+						This project is one that I wished for when I was a flight attendant.
+						Each year, Delta creates a CSV file for each flight attendant with a
+						record of all your flights for the year. This website is a way to
+						visually summarize all your trips for the year using that CSV file.
 					</p>
 					<p>
-						Today, I am starting a new chapter in my life as a web developer. I
-						completed two coding bootcamps. The first in 2017 and the second in
-						2021. I'm very excited to see what I can build and create as a
-						developer. Wish me luck!
+						I flew for Delta and Northwest from 1996 to 2020. I had a great
+						career full of adventures and made lots of amazing friends along the
+						way. But, throughout my career, I found myself drawn to web
+						development. I built and maintained websites for Northwest Airlines
+						Ski Club, Delta Airlines Ski Club and North American Airlines Ski
+						Federation. In 2017, I completed a coding bootcamp online while
+						still working full-time.
 					</p>
+					<p>
+						This year, after taking an early-retirement from Delta, I completed
+						a second coding bootcamp at Thinkful. I'm excited to start my new
+						career as a software engineer. I love the process of building and
+						creating through web development.
+					</p>
+
 					<p className='signature'>Sarah Abbett</p>
 
 					<div className='mb-4 social-icons'>
@@ -60,7 +72,7 @@ export default function About() {
 						</a>
 						<a
 							className='social-icon'
-							href='https://docs.google.com/document/d/1fGK_n9kVKUYR_9iGnCwQS61ba4z8_QVJ90wfWaxu8p0/edit?usp=sharing'
+							href='https://abbett-resume.vercel.app/'
 							target='_blank'
 						>
 							<svg
@@ -77,7 +89,7 @@ export default function About() {
 						</a>
 					</div>
 					<hr></hr>
-					<h1 className='w-50 mx-auto text-center'>Contact Me</h1>
+					<h3 className='w-50 mx-auto text-center'>Contact Me</h3>
 					<form onSubmit={handleSubmit}>
 						<div className='form-group'>
 							<input
