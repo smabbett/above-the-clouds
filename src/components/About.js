@@ -138,15 +138,19 @@ export default function About() {
 								errors={state.errors}
 							/>
 						</div>
-						{/* <div className='text-center'> */}
-						<button
-							className='btn btn-primary'
-							type='submit'
-							disabled={state.submitting}
-						>
-							Submit
-						</button>
-						{/* </div> */}
+						<div
+							className='g-recaptcha d-flex justify-content-center'
+							data-sitekey='6LdXdsAcAAAAAOlnle7PRQLKo7FfDgDWd-KSKPwE'
+						></div>
+						<div className='text-center'>
+							<button
+								className='btn btn-primary w-50'
+								type='submit'
+								disabled={state.submitting}
+							>
+								Submit
+							</button>
+						</div>
 					</form>
 				</div>
 			</div>

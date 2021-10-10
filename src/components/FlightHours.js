@@ -1,17 +1,17 @@
 import React from 'react';
 import { daysHoursMinutesConvert } from '../utils/time-conversion';
-import './FlightPay.css';
+import './FlightHours.css';
 
-function FlightPay({ rotations }) {
-	let flightPay = 0;
-	let intlPay = 0;
-	let domPay = 0;
+function FlightHours({ rotations }) {
+	let flightHours = 0;
+	let intlHours = 0;
+	let domHours = 0;
 
 	for (let value of rotations.values()) {
-		flightPay = flightPay + value.flt_pay;
-		intlPay = intlPay + value.intl_pay;
+		flightHours = flightHours + value.flt_pay;
+		intlHours = intlHours + value.intl_pay;
 	}
-	domPay = flightPay - intlPay;
+	domHours = flightHours - intlHours;
 
 	return (
 		<>
@@ -20,17 +20,17 @@ function FlightPay({ rotations }) {
 			</p>
 			<div className='bkgd-airplane d-flex mx-auto align-items-center justify-content-center'>
 				<div className='small-text circle d-flex flex-column'>
-					{daysHoursMinutesConvert(flightPay)} inflight
+					{daysHoursMinutesConvert(flightHours)} inflight
 				</div>
 			</div>
 			<div className='row mt-3'>
 				<div className='col'>
 					<h6>Domestic Flights</h6>
-					<p className='small-text'> {daysHoursMinutesConvert(domPay)}</p>
+					<p className='small-text'> {daysHoursMinutesConvert(domHours)}</p>
 				</div>
 				<div className='col'>
 					<h6>International Flights</h6>
-					<p className='small-text'>{daysHoursMinutesConvert(intlPay)}</p>
+					<p className='small-text'>{daysHoursMinutesConvert(intlHours)}</p>
 				</div>
 			</div>
 
@@ -55,4 +55,4 @@ function FlightPay({ rotations }) {
 		</>
 	);
 }
-export default FlightPay;
+export default FlightHours;

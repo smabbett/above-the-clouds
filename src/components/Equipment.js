@@ -1,9 +1,10 @@
 import React from 'react';
 import { Chart } from 'react-google-charts';
+import { parseDate } from '../utils/parseDate';
 
 function Equipment({ list }) {
-	const firstLegDate = list[0].dept_date;
-	const lastLegDate = list[list.length - 1].dept_date;
+	const firstLegDate = parseDate(list[0].dept_date).toDateString();
+	const lastLegDate = parseDate(list[list.length - 1].dept_date).toDateString();
 
 	//use Map to count equipment flown
 	let result = new Map();

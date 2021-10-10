@@ -18,15 +18,22 @@ export default function ShareComponent() {
 	const downloadImage = () => {
 		const divToDisplay = document.getElementById('share-canvas');
 		html2canvas(divToDisplay).then(function (canvas) {
-			link = canvas.toDataURL();
-			console.log('link', link);
+			// link = canvas.toDataURL();
+			// console.log('link', link);
+
+			link = document.createElement('a');
+			document.body.appendChild(link);
+			link.download = 'my-flights.jpg';
+			link.href = canvas.toDataURL();
+			link.target = '_blank';
+			link.click();
 		});
 	};
 
 	return (
 		<>
 			<FacebookShareButton
-				beforeOnClick={downloadImage}
+				// beforeOnClick={downloadImage}
 				url={shareUrl}
 				style={{ margin: '4px' }}
 				quote={
@@ -65,6 +72,13 @@ export default function ShareComponent() {
 			>
 				<EmailIcon size={45} round={true}></EmailIcon>
 			</EmailShareButton>
+			<button
+				className='btn btn-danger rounded-circle m-2'
+				style={{ width: '45px', height: '45px' }}
+				onClick={downloadImage}
+			>
+				<span className='oi oi-data-transfer-download'></span>
+			</button>
 		</>
 	);
 }

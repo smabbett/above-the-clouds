@@ -35,18 +35,12 @@ function Layovers({ list }) {
 
 	return (
 		<>
-			{/* <div className='row'>
-			<div className='col-md-3 mx-auto align-self-center'> */}
 			<hr></hr>
 			<p className='font-italic text-center'>
 				{sentence} I had {sortedMap.values().next().value} layovers at{' '}
 				{sortedMap.keys().next().value}.
 			</p>
-
-			{/* </div> */}
-			{/* <div className='col-md-8 mt-3'> */}
 			<Chart
-				// height={'300px'}
 				chartType='Bar'
 				loader={<div>Loading Chart</div>}
 				data={[['Airport Code', 'Layovers'], ...sortedMap]}
@@ -60,9 +54,6 @@ function Layovers({ list }) {
 				// For tests
 				rootProps={{ 'data-testid': '2' }}
 			/>
-			{/* </div>
-			
-			</div> */}
 		</>
 	);
 }

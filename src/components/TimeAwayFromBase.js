@@ -69,9 +69,7 @@ function TimeAwayFromBase({ rotations, list }) {
 	// }, 0);
 
 	let resultArray = [...result];
-
 	resultArray.sort((a, b) => b[1] - a[1]);
-	console.log('resultArray', resultArray);
 	let monthCount = 0;
 	resultArray.forEach((item) => {
 		if (item[1] !== 0) {
@@ -104,7 +102,7 @@ function TimeAwayFromBase({ rotations, list }) {
 					{resultArray[resultArray.length - 1][2]}
 				</div>
 				<div className='col'>
-					<Icon color='#8ac926' width='50' icon='bi:calendar-month-fill' />
+					<Icon color='#c4c4c4' width='50' icon='bi:calendar-event' />
 				</div>
 				<div className='small-text col-4'>
 					Longest Month
@@ -118,7 +116,7 @@ function TimeAwayFromBase({ rotations, list }) {
 					<br /> {hoursMinutesConvert(shortFlight[2])}
 				</div>
 				<div className='col'>
-					<Icon color='#ffca3a' width='50' icon='cil:airplane-mode' />
+					<Icon color='#c4c4c4' width='50' icon='cil:airplane-mode' />
 				</div>
 				<div className='small-text col-4'>
 					Longest Flight
@@ -132,7 +130,7 @@ function TimeAwayFromBase({ rotations, list }) {
 					<br /> {shortLayover[0]} {hoursMinutesConvert(shortLayover[1])}
 				</div>
 				<div className='col'>
-					<Icon color='#4cc9f0' width='50' icon='ic:baseline-local-hotel' />
+					<Icon color='#c4c4c4' width='50' icon='ic:baseline-local-hotel' />
 				</div>
 				<div className='small-text col-4'>
 					Longest Layover

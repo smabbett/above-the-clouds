@@ -24,9 +24,13 @@
 
 ![Screenshot](./src/images/modal.png)
 
+## Demo screenshot
+
 ![Screenshot](./src/images/dashboard.png)
 
-![Screenshot](./src/images/sharing.png)
+## Share screenshot
+
+![Screenshot](./src/images/sharing.jpg)
 
 ## What I Learned
 

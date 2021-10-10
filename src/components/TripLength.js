@@ -41,7 +41,6 @@ function TripLength({ rotations }) {
 					slices: {
 						0: { color: '#7209b7' }, //mar
 						1: { color: '#4361ee' }, //aug
-
 						2: { color: '#8ac926' }, //dec
 						3: { color: '#f72585' }, //jan
 						4: { color: '#ffca3a' }, //nov
