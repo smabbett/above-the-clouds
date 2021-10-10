@@ -35,28 +35,34 @@ function Layovers({ list }) {
 
 	return (
 		<>
-			<div className='row'>
-				<div className='col-8 mt-3'>
-					<Chart
-						chartType='Bar'
-						loader={<div>Loading Chart</div>}
-						data={[['Airport Code', 'Layovers'], ...sortedMap]}
-						options={{
-							hAxis: { fontName: 'Nunito' },
-							legend: { position: 'none' },
-							colors: ['#3a0ca3'],
-							//font not working?
-							fontName: 'Nunito',
-						}}
-						// For tests
-						rootProps={{ 'data-testid': '2' }}
-					/>
-				</div>
-				<div className='col-3 mx-auto align-self-center'>
-					{sentence} I had {sortedMap.values().next().value} layovers at{' '}
-					{sortedMap.keys().next().value}.
-				</div>
-			</div>
+			{/* <div className='row'>
+			<div className='col-md-3 mx-auto align-self-center'> */}
+			<hr></hr>
+			<p className='font-italic text-center'>
+				{sentence} I had {sortedMap.values().next().value} layovers at{' '}
+				{sortedMap.keys().next().value}.
+			</p>
+
+			{/* </div> */}
+			{/* <div className='col-md-8 mt-3'> */}
+			<Chart
+				// height={'300px'}
+				chartType='Bar'
+				loader={<div>Loading Chart</div>}
+				data={[['Airport Code', 'Layovers'], ...sortedMap]}
+				options={{
+					hAxis: { fontName: 'Nunito' },
+					legend: { position: 'none' },
+					colors: ['#3a0ca3'],
+					//font not working?
+					fontName: 'Nunito',
+				}}
+				// For tests
+				rootProps={{ 'data-testid': '2' }}
+			/>
+			{/* </div>
+			
+			</div> */}
 		</>
 	);
 }

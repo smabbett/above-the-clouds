@@ -35,31 +35,28 @@ function TripLength({ rotations }) {
 				options={{
 					title: 'Trip Length',
 					// is3D: true,
-					legend: 'none',
+					legend: { position: 'bottom' },
 					fontName: 'Nunito',
+					pieSliceText: 'label',
 					slices: {
-						0: { offset: 0.3, color: '#560bad' },
-						1: { color: '#26c926' },
-						2: { color: '#3f37c9' },
-						3: { color: '#f72585' },
-						4: { color: '#ffca3a' },
-						5: { color: '#3a0ca3' },
-						6: { color: '#7209b7' },
-						7: { color: '#4361ee' },
-						8: { color: '#8ac926' },
-						9: { color: '#4cc9f0' },
-						10: { color: '#480ca8' },
-						11: { color: '#4895ef' },
-						12: { color: '#b5179e' },
+						0: { color: '#7209b7' }, //mar
+						1: { color: '#4361ee' }, //aug
+
+						2: { color: '#8ac926' }, //dec
+						3: { color: '#f72585' }, //jan
+						4: { color: '#ffca3a' }, //nov
+						5: { color: '#3a0ca3' }, //jun
+						6: { color: '#560bad' }, //apr
+						7: { color: '#b5179e' }, //feb2
+						8: { color: '#3f37c9' }, //jul
+						9: { color: '#4cc9f0' }, //oct
+						10: { color: '#480ca8' }, //may
+						11: { color: '#4895ef' }, //sep
+						12: { color: '#b5179e' }, //feb2
 					},
 				}}
 				rootProps={{ 'data-testid': '5' }}
 			/>
-			<hr></hr>
-			<p>
-				My first rotation was {rotations.keys().next().value} and my last
-				rotation was {Array.from(rotations.keys()).pop()}
-			</p>
 		</>
 	);
 }

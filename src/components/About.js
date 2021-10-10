@@ -42,6 +42,7 @@ export default function About() {
 							className='social-icon'
 							href='https://www.linkedin.com/in/sarah-abbett/'
 							target='_blank'
+							rel='noreferrer'
 						>
 							<svg
 								xmlns='http://www.w3.org/2000/svg'
@@ -58,6 +59,7 @@ export default function About() {
 							className='social-icon'
 							href='https://github.com/smabbett'
 							target='_blank'
+							rel='noreferrer'
 						>
 							<svg
 								xmlns='http://www.w3.org/2000/svg'
@@ -74,6 +76,7 @@ export default function About() {
 							className='social-icon'
 							href='https://abbett-resume.vercel.app/'
 							target='_blank'
+							rel='noreferrer'
 						>
 							<svg
 								xmlns='http://www.w3.org/2000/svg'

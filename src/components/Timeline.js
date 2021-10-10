@@ -46,10 +46,9 @@ export default function Timeline({ rotations }) {
 			end,
 		]);
 	}
-	console.log('timeline', result);
 
 	let resultArray = [...result];
-	console.log('resultArray', resultArray);
+
 	resultArray.forEach((e) => e.unshift(rotations.keys().next().value.slice(5)));
 	return (
 		<div id='chart_wrapper'>

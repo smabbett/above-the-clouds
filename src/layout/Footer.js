@@ -6,7 +6,11 @@ export default function Footer() {
 		<footer className='footer'>
 			<div className='container'>
 				<div className='d-flex justify-content-between'>
-					<a href='https://abbett-resume.vercel.app/' target='_blank'>
+					<a
+						href='https://abbett-resume.vercel.app/'
+						target='_blank'
+						rel='noreferrer'
+					>
 						&copy; 2021 Sarah Abbett
 					</a>
 					<Link to='/privacy'>Privacy Policy</Link>

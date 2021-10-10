@@ -33,6 +33,7 @@ const headers = [
 export default function FileReader({ setRotations }) {
 	const [error, setError] = useState(null);
 	const [isActive, setIsActive] = useState(false);
+
 	let invalidFields = [];
 	const history = useHistory();
 

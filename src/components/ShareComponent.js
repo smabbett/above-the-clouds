@@ -1,4 +1,5 @@
 import React from 'react';
+import html2canvas from 'html2canvas';
 import {
 	FacebookShareButton,
 	LinkedinShareButton,
@@ -13,10 +14,19 @@ import {
 } from 'react-share';
 export default function ShareComponent() {
 	const shareUrl = 'https://intheclouds.us/';
+	let link = '';
+	const downloadImage = () => {
+		const divToDisplay = document.getElementById('share-canvas');
+		html2canvas(divToDisplay).then(function (canvas) {
+			link = canvas.toDataURL();
+			console.log('link', link);
+		});
+	};
 
 	return (
 		<>
 			<FacebookShareButton
+				beforeOnClick={downloadImage}
 				url={shareUrl}
 				style={{ margin: '4px' }}
 				quote={

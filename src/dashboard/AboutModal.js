@@ -7,6 +7,7 @@ import './AboutModal.css';
 export default function AboutModal(props) {
 	return (
 		<Modal
+			animation={false}
 			{...props}
 			size='md'
 			aria-labelledby='contained-modal-title-vcenter'

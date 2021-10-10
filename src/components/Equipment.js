@@ -2,6 +2,9 @@ import React from 'react';
 import { Chart } from 'react-google-charts';
 
 function Equipment({ list }) {
+	const firstLegDate = list[0].dept_date;
+	const lastLegDate = list[list.length - 1].dept_date;
+
 	//use Map to count equipment flown
 	let result = new Map();
 	list.forEach((item) => {
@@ -46,33 +49,44 @@ function Equipment({ list }) {
 	let sortedMap = new Map(dataArray.sort((a, b) => b[1] - a[1]));
 
 	return (
-		<Chart
-			chartType='PieChart'
-			loader={<div>Loading Chart</div>}
-			data={[['Type of Aircraft', 'Flights'], ...sortedMap]}
-			options={{
-				title: 'Aircraft Flown',
-				// is3D: true,
-				legend: 'none',
-				fontName: 'Nunito',
-				slices: {
-					0: { offset: 0.3, color: '#560bad' },
-					1: { color: '#26c926' },
-					2: { color: '#3f37c9' },
-					3: { color: '#f72585' },
-					4: { color: '#ffca3a' },
-					5: { color: '#3a0ca3' },
-					6: { color: '#7209b7' },
-					7: { color: '#4361ee' },
-					8: { color: '#8ac926' },
-					9: { color: '#4cc9f0' },
-					10: { color: '#480ca8' },
-					11: { color: '#4895ef' },
-					12: { color: '#b5179e' },
-				},
-			}}
-			rootProps={{ 'data-testid': '1' }}
-		/>
+		<>
+			<p>
+				Between {firstLegDate} and {lastLegDate}, I flew {list.length} flight
+				segments,{' '}
+				<em>
+					which means {list.length} boardings, the toughest part of the job.
+				</em>
+			</p>
+			<hr></hr>
+			<Chart
+				chartType='PieChart'
+				loader={<div>Loading Chart</div>}
+				data={[['Type of Aircraft', 'Flights'], ...sortedMap]}
+				options={{
+					title: 'Aircraft Flown',
+					// is3D: true,
+					legend: { position: 'bottom' },
+					fontName: 'Nunito',
+					pieSliceText: 'label',
+					slices: {
+						0: { color: '#560bad' }, //apr
+						1: { color: '#b5179e' }, //feb2
+						2: { color: '#8ac926' }, //dec
+						3: { color: '#f72585' }, //jan
+						4: { color: '#ffca3a' }, //nov
+						5: { color: '#3a0ca3' }, //jun
+						6: { color: '#7209b7' }, //mar
+						7: { color: '#4361ee' }, //aug
+						8: { color: '#3f37c9' }, //jul
+						9: { color: '#4cc9f0' }, //oct
+						10: { color: '#480ca8' }, //may
+						11: { color: '#4895ef' }, //sep
+						12: { color: '#b5179e' }, //feb2
+					},
+				}}
+				rootProps={{ 'data-testid': '1' }}
+			/>
+		</>
 	);
 }
 

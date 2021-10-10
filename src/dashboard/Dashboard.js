@@ -8,12 +8,6 @@ export default function Dashboard({ rotations, setRotations }) {
 	// const [rotations, setRotations] = useState([]);
 	const [modalShow, setModalShow] = React.useState(true);
 
-	//create array of flight segments
-	let list = [];
-	for (let value of rotations.values()) {
-		list.push(...value.segments);
-	}
-
 	const handleHide = () => {
 		setModalShow(false);
 		const rotationsMap = formatRotations([...demo]);

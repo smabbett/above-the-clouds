@@ -97,16 +97,6 @@
 			async
 			src="https://www.googletagmanager.com/gtag/js?id=G-MWSKHQ1507"
 		></script>
-		<script>
-			window.dataLayer = window.dataLayer || [];
-			function gtag() {
-				dataLayer.push(arguments);
-			}
-			firebase.analytics();
-			gtag('js', new Date());
-
-			gtag('config', 'G-MWSKHQ1507');
-		</script>
 
 		<script type="module">
 			// Import the functions you need from the SDKs you need
@@ -131,5 +121,15 @@
 			const app = initializeApp(firebaseConfig);
 			const analytics = getAnalytics(app);
 		</script>
+		<!-- <script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag() {
+				dataLayer.push(arguments);
+			}
+			firebase.analytics();
+			gtag('js', new Date());
+
+			gtag('config', 'G-MWSKHQ1507');
+		</script> -->
 	</body>
 </html>

@@ -33,6 +33,7 @@ function FlightPay({ rotations }) {
 					<p className='small-text'>{daysHoursMinutesConvert(intlPay)}</p>
 				</div>
 			</div>
+
 			{/* 
 		
 			<Chart

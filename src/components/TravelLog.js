@@ -13,16 +13,18 @@ export default function TravelLog({ rotations }) {
 	// const isDesktopOrLaptop = useMediaQuery({
 	// 	query: '(min-width:1224px)',
 	// });
+
 	//create array of flight segments
 	let list = [];
 	for (let value of rotations.values()) {
 		list.push(...value.segments);
 	}
+	console.log('list', list);
 
 	return (
 		<div className='container-fluid'>
 			<h2 className='mt-4'>
-				In The Clouds {rotations.keys().next().value.slice(5)}
+				My flights {rotations.keys().next().value.slice(5)}
 			</h2>
 			{/* {isDesktopOrLaptop && <Timeline rotations={rotations} />} */}
 			<Timeline rotations={rotations} />
@@ -37,7 +39,7 @@ export default function TravelLog({ rotations }) {
 					<hr></hr>
 					<Equipment list={list} />
 				</div>
-				<div className='col-md-6'>
+				<div id='share-canvas' className='col-md-6'>
 					<Log list={list} />
 					<Layovers list={list} />
 				</div>
