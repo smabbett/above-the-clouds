@@ -12,23 +12,55 @@ import {
 	LinkedinIcon,
 	EmailIcon,
 } from 'react-share';
+
 export default function ShareComponent() {
 	const shareUrl = 'https://intheclouds.us/';
 	let link = '';
+
 	const downloadImage = () => {
 		const divToDisplay = document.getElementById('share-canvas');
-		html2canvas(divToDisplay).then(function (canvas) {
-			// link = canvas.toDataURL();
-			// console.log('link', link);
-
+		html2canvas(divToDisplay, {
+			allowTaint: true,
+			useCORS: true,
+		}).then(function (canvas) {
 			link = document.createElement('a');
 			document.body.appendChild(link);
-			link.download = 'my-flights.jpg';
-			link.href = canvas.toDataURL();
+			link.download = 'my-flights.png';
+			link.href = canvas.toDataURL('image/png');
 			link.target = '_blank';
+
+			link.addEventListener('click', function () {
+				let x = window.open();
+				let iframe = x.document.createElement('iframe');
+				iframe.width = '100%';
+				iframe.height = '100%';
+				iframe.style = 'border: 0';
+				iframe.src = link.href;
+				x.document.body.appendChild(iframe);
+			});
 			link.click();
 		});
 	};
+
+	// function PrintDiv(div) {
+	// 	html2canvas(div, {
+	// 		onrendered: function (canvas) {
+	// 			var myImage = canvas.toDataURL();
+	// 			downloadURI(myImage, 'my-flights.png');
+	// 		},
+	// 	});
+	// }
+
+	// function downloadURI(uri, name) {
+	// 	var link = document.createElement('a');
+
+	// 	link.download = name;
+	// 	link.href = uri;
+	// 	document.body.appendChild(link);
+	// 	link.click();
+	// 	//after creating link you should delete dynamic link
+	// 	//clearDynamicLink(link);
+	// }
 
 	return (
 		<>

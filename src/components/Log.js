@@ -1,16 +1,20 @@
 import React, { useState } from 'react';
-import Chart from 'react-google-charts';
+
 import { Tabs, Tab } from 'react-bootstrap';
+import WorldGeochart from './WorldGeoChart';
+import AsiaGeochart from './AsiaGeoChart';
+import EuropeGeochart from './EuropeGeoChart';
+import USGeochart from './USGeoChart';
 
 export default function Log({ list }) {
-	const chartEvents = [
-		{
-			eventName: 'select',
-			callback(chartWrapper, googleViz, selected) {
-				console.log('Region selected ', selected.region);
-			},
-		},
-	];
+	// const chartEvents = [
+	// 	{
+	// 		eventName: 'select',
+	// 		callback(chartWrapper, googleViz, selected) {
+	// 			console.log('Region selected ', selected.region);
+	// 		},
+	// 	},
+	// ];
 
 	const [key, setKey] = useState('world');
 	//use Map to count layovers by city
@@ -31,88 +35,25 @@ export default function Log({ list }) {
 	return (
 		<>
 			<Tabs
-				id='controlled-tab-example'
+				id='region'
 				activeKey={key}
+				mountOnEnter={true}
+				unmountOnExit={true}
+				transition={false}
 				onSelect={(k) => setKey(k)}
 				className='mb-3'
 			>
 				<Tab eventKey='world' title='World'>
-					<Chart
-						chartEvents={chartEvents}
-						width={'100%'}
-						height={'300px'}
-						chartType='GeoChart'
-						data={[['City', 'Layovers'], ...result]}
-						options={{
-							showZoomOut: true,
-							displayMode: 'markers',
-							colorAxis: { colors: ['#f72585', '#3a0ca3'] },
-							backgroundColor: '#cbe6ee',
-							datalessRegionColor: '#EAEAEA',
-							enableRegionInteractivity: true,
-							sizeAxis: { minValue: 0, maxSize: 10 },
-						}}
-						mapsApiKey='AIzaSyBwWq-oJkR_gEeqnY-mPI8LCneQg6zvX38'
-						rootProps={{ 'data-testid': '3' }}
-					/>
+					<WorldGeochart result={result} />
 				</Tab>
-				<Tab eventKey='us' title='US' default>
-					<Chart
-						width={'100%'}
-						height={'300px'}
-						chartType='GeoChart'
-						data={[['City', 'Layovers'], ...result]}
-						options={{
-							region: 'US',
-							domain: 'US',
-							displayMode: 'markers',
-							colorAxis: { colors: ['#f72585', '#3a0ca3'] },
-							backgroundColor: '#cbe6ee',
-							datalessRegionColor: '#EAEAEA',
-							enableRegionInteractivity: true,
-							sizeAxis: { minValue: 0, maxSize: 10 },
-						}}
-						mapsApiKey='AIzaSyBwWq-oJkR_gEeqnY-mPI8LCneQg6zvX38'
-						rootProps={{ 'data-testid': '3' }}
-					/>
+				<Tab eventKey='us' title='US'>
+					<USGeochart result={result} />
 				</Tab>
 				<Tab eventKey='europe' title='Europe'>
-					<Chart
-						width={'100%'}
-						height={'300px'}
-						chartType='GeoChart'
-						data={[['City', 'Layovers'], ...result]}
-						options={{
-							region: 150,
-							displayMode: 'markers',
-							colorAxis: { colors: ['#f72585', '#3a0ca3'] },
-							backgroundColor: '#cbe6ee',
-							datalessRegionColor: '#EAEAEA',
-							enableRegionInteractivity: true,
-							sizeAxis: { minValue: 0, maxSize: 10 },
-						}}
-						mapsApiKey='AIzaSyBwWq-oJkR_gEeqnY-mPI8LCneQg6zvX38'
-						rootProps={{ 'data-testid': '3' }}
-					/>
+					<EuropeGeochart result={result} />
 				</Tab>
 				<Tab eventKey='asia' title='Asia'>
-					<Chart
-						width={'100%'}
-						height={'300px'}
-						chartType='GeoChart'
-						data={[['City', 'Layovers'], ...result]}
-						options={{
-							region: 142,
-							displayMode: 'markers',
-							colorAxis: { colors: ['#f72585', '#3a0ca3'] },
-							backgroundColor: '#cbe6ee',
-							datalessRegionColor: '#EAEAEA',
-							enableRegionInteractivity: true,
-							sizeAxis: { minValue: 0, maxSize: 10 },
-						}}
-						mapsApiKey='AIzaSyBwWq-oJkR_gEeqnY-mPI8LCneQg6zvX38'
-						rootProps={{ 'data-testid': '3' }}
-					/>
+					<AsiaGeochart result={result} />
 				</Tab>
 			</Tabs>
 		</>
