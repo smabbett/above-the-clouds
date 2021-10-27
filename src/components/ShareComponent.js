@@ -26,7 +26,8 @@ export default function ShareComponent() {
 			link = document.createElement('a');
 			document.body.appendChild(link);
 			link.download = 'my-flights.png';
-			link.href = canvas.toDataURL('image/png');
+			// link.href = canvas.toDataURL('image/png');
+			link.href = canvas.toDataURL();
 			link.target = '_blank';
 
 			link.addEventListener('click', function () {
