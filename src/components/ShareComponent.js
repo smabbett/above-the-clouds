@@ -22,29 +22,47 @@ export default function ShareComponent() {
 		html2canvas(divToDisplay, {
 			allowTaint: true,
 			useCORS: true,
+			windowWidth: '1280px',
 		}).then(function (canvas) {
 			link = document.createElement('a');
 			document.body.appendChild(link);
 			link.download = 'my-flights.png';
-			// link.href = canvas.toDataURL('image/png');
-			link.href = canvas.toDataURL();
+			link.href = canvas.toDataURL('image/png');
+			//link.href = canvas.toBlob()
 			link.target = '_blank';
 
-			link.addEventListener('click', function () {
-				let x = window.open();
-				let iframe = x.document.createElement('iframe');
-				iframe.width = '100%';
-				iframe.height = '100%';
-				iframe.style = 'border: 0';
-				iframe.src = link.href;
-				x.document.body.appendChild(iframe);
-			});
+			// link.addEventListener('click', function () {
+			// 	let x = window.open();
+			// 	let iframe = x.document.createElement('iframe');
+			// 	iframe.width = '100%';
+			// 	iframe.height = '100%';
+			// 	iframe.style = 'border: 0';
+			// 	iframe.src = link.href;
+			// 	x.document.body.appendChild(iframe);
+			// });
 			link.click();
 		});
 	};
+	// const downloadImage = () => {
+	// 	var canvas = document.getElementById('share-canvas');
+
+	// 	canvas.toBlob(function (blob) {
+	// 		var newImg = document.createElement('img'),
+	// 			url = URL.createObjectURL(blob);
+
+	// 		newImg.onload = function () {
+	// 			// no longer need to read the blob so it's revoked
+	// 			URL.revokeObjectURL(url);
+	// 		};
+
+	// 		newImg.src = url;
+	// 		document.body.appendChild(newImg);
+	// 	});
+	// };
 
 	// function PrintDiv(div) {
 	// 	html2canvas(div, {
+
 	// 		onrendered: function (canvas) {
 	// 			var myImage = canvas.toDataURL();
 	// 			downloadURI(myImage, 'my-flights.png');
@@ -59,9 +77,9 @@ export default function ShareComponent() {
 	// 	link.href = uri;
 	// 	document.body.appendChild(link);
 	// 	link.click();
-	// 	//after creating link you should delete dynamic link
-	// 	//clearDynamicLink(link);
-	// }
+	//after creating link you should delete dynamic link
+	//clearDynamicLink(link);
+	//	}
 
 	return (
 		<>
