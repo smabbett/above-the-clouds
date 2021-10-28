@@ -18,11 +18,15 @@ export default function ShareComponent() {
 	let link = '';
 
 	const downloadImage = () => {
+		if (window.screen.width < 1024) {
+			document
+				.getElementById('viewport')
+				.setAttribute('content', 'width=1200px');
+		}
 		const divToDisplay = document.getElementById('share-canvas');
 		html2canvas(divToDisplay, {
 			allowTaint: true,
 			useCORS: true,
-			windowWidth: '1280px',
 		}).then(function (canvas) {
 			link = document.createElement('a');
 			document.body.appendChild(link);
@@ -42,6 +46,11 @@ export default function ShareComponent() {
 			// });
 			link.click();
 		});
+		if (window.screen.width < 1024) {
+			document
+				.getElementById('viewport')
+				.setAttribute('content', 'width=device-width, initial-scale=1');
+		}
 	};
 	// const downloadImage = () => {
 	// 	var canvas = document.getElementById('share-canvas');
