@@ -21,7 +21,7 @@ export default function ShareComponent() {
 		if (window.screen.width < 1024) {
 			document
 				.getElementById('viewport')
-				.setAttribute('content', 'width=1200px');
+				.setAttribute('content', 'width=1400px');
 		}
 		const divToDisplay = document.getElementById('share-canvas');
 		html2canvas(divToDisplay, {
@@ -32,18 +32,7 @@ export default function ShareComponent() {
 			document.body.appendChild(link);
 			link.download = 'my-flights.png';
 			link.href = canvas.toDataURL('image/png');
-			//link.href = canvas.toBlob()
 			link.target = '_blank';
-
-			// link.addEventListener('click', function () {
-			// 	let x = window.open();
-			// 	let iframe = x.document.createElement('iframe');
-			// 	iframe.width = '100%';
-			// 	iframe.height = '100%';
-			// 	iframe.style = 'border: 0';
-			// 	iframe.src = link.href;
-			// 	x.document.body.appendChild(iframe);
-			// });
 			link.click();
 		});
 		if (window.screen.width < 1024) {
@@ -52,43 +41,6 @@ export default function ShareComponent() {
 				.setAttribute('content', 'width=device-width, initial-scale=1');
 		}
 	};
-	// const downloadImage = () => {
-	// 	var canvas = document.getElementById('share-canvas');
-
-	// 	canvas.toBlob(function (blob) {
-	// 		var newImg = document.createElement('img'),
-	// 			url = URL.createObjectURL(blob);
-
-	// 		newImg.onload = function () {
-	// 			// no longer need to read the blob so it's revoked
-	// 			URL.revokeObjectURL(url);
-	// 		};
-
-	// 		newImg.src = url;
-	// 		document.body.appendChild(newImg);
-	// 	});
-	// };
-
-	// function PrintDiv(div) {
-	// 	html2canvas(div, {
-
-	// 		onrendered: function (canvas) {
-	// 			var myImage = canvas.toDataURL();
-	// 			downloadURI(myImage, 'my-flights.png');
-	// 		},
-	// 	});
-	// }
-
-	// function downloadURI(uri, name) {
-	// 	var link = document.createElement('a');
-
-	// 	link.download = name;
-	// 	link.href = uri;
-	// 	document.body.appendChild(link);
-	// 	link.click();
-	//after creating link you should delete dynamic link
-	//clearDynamicLink(link);
-	//	}
 
 	return (
 		<>
